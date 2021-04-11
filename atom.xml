@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>过敏的太空小屋</title>
+  
+  <subtitle>代码｜游戏｜绘画｜摄影｜剪辑</subtitle>
+  <link href="https://fayeke.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://fayeke.github.io/"/>
+  <updated>2021-04-11T16:40:43.825Z</updated>
+  <id>https://fayeke.github.io/</id>
+  
+  <author>
+    <name>Faye Ke</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DevLog001_Xcode使用SDL2安装配置(M1)</title>
+    <link href="https://fayeke.github.io/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/"/>
+    <id>https://fayeke.github.io/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/</id>
+    <published>2021-04-11T12:45:55.000Z</published>
+    <updated>2021-04-11T16:40:43.825Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;我的配置过程主要参考了&lt;a href=&quot;https://www.youtube.com/watch?v=JbsmRKi18SI&quot;&gt;这个视频&lt;/a&gt;(YouTube)，这个视频帮我解决了很多问题，感谢&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="基于SDL的游戏开发学习" scheme="https://fayeke.github.io/categories/%E5%9F%BA%E4%BA%8ESDL%E7%9A%84%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="C++" scheme="https://fayeke.github.io/tags/C/"/>
+    
+    <category term="Xcode" scheme="https://fayeke.github.io/tags/Xcode/"/>
+    
+    <category term="SDL" scheme="https://fayeke.github.io/tags/SDL/"/>
+    
+    <category term="MacOS" scheme="https://fayeke.github.io/tags/MacOS/"/>
+    
+    <category term="M1" scheme="https://fayeke.github.io/tags/M1/"/>
+    
+    <category term="游戏开发" scheme="https://fayeke.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+</feed>
