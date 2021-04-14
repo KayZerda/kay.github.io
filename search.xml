@@ -1,42 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>DevLog002-Xcode使用SDL2_image安装配置</title>
-    <url>/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h2 id="下载和安装"><a href="#下载和安装" class="headerlink" title="下载和安装"></a>下载和安装</h2><p>具体过程和<a href="https://fayeke.github.io/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/">SDL框架</a>的下载安装相同，从<a href="http://www.libsdl.org/projects/SDL_image/">这里</a>下载相应操作系统的Development Libraries。</p>
-<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="芯片架构问题"><a href="#芯片架构问题" class="headerlink" title="芯片架构问题"></a>芯片架构问题</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;yourProject.xcodeproj The linked and embedded framework &#39;SDL2_image.framework&#39; is missing one or more architectures required by this target: arm64.</span><br></pre></td></tr></table></figure>
-<p>兼容问题更改运行方式为Rosetta即可。<br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/2021-04-14/image_01.png"><br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/2021-04-14/image_02.png"></p>
-<h3 id="codesign问题"><a href="#codesign问题" class="headerlink" title="codesign问题"></a>codesign问题</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ctgmoccoynjrwpbprjqqektfmoac&#x2F;Build&#x2F;Products&#x2F;Debug&#x2F;yourProject.app&#x2F;Contents&#x2F;Frameworks&#x2F;SDL2_image.framework&#x2F;Versions&#x2F;A&#x2F;Frameworks&#x2F;webp.framework</span><br><span class="line">Command CodeSign failed with a nonzero exit code</span><br></pre></td></tr></table></figure>
-<p>最终我通过手动签名webp.framework和删除上一篇输入的Other code signing flags –deep解决了。罪魁祸首应该是–deep导致的，删除后SDL框架正常运行，SDL_image框架还没有使用，仅引用，程序正常运行。</p>
-<blockquote>
-<p>关于手动签名，我参考了stackoverflow的<a href="https://stackoverflow.com/questions/28665772/xcode-6-1-1-cannot-codesign-code-object-is-not-signed-at-all-with-only-1-fra">这个问题</a>下的回答。</p>
-</blockquote>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><blockquote>
-<p>等我切实使用SDL2_image框架后再说。</p>
-</blockquote>
-<h2 id="老规矩的碎碎念"><a href="#老规矩的碎碎念" class="headerlink" title="老规矩的碎碎念"></a>老规矩的碎碎念</h2><p>image老打成iamge，也不知道为什么，被自己气死。</p>
-]]></content>
-      <categories>
-        <category>基于SDL的游戏开发学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Xcode</tag>
-        <tag>SDL</tag>
-        <tag>MacOS</tag>
-        <tag>M1</tag>
-        <tag>游戏开发</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>DevLog001_Xcode使用SDL2安装配置(M1)</title>
     <url>/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/</url>
     <content><![CDATA[<blockquote>
 <p>我的配置过程主要参考了<a href="https://www.youtube.com/watch?v=JbsmRKi18SI">这个视频</a>(YouTube)，这个视频帮我解决了很多问题，感谢</p>
 </blockquote>
-<ul>
-<li>more -</li>
-</ul>
+<span id="more"></span>
+
 <h2 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h2><p>我的设备是MacBook Air(M1)，最新版(截至本文编辑)Xcode。<br>由于这是我的第一台使用macOS的电脑，对<strong>签名</strong>等概念并不熟悉，属实浪费了很多时间。<br>根据我安装配置的情况来看，M1对于SDL2框架的使用并无影响，在正确配置后，如果出现窗口没有出现等情况，多半是代码上的错误(说的就是我自己👉🏼🤡)。</p>
 <h2 id="下载和安装"><a href="#下载和安装" class="headerlink" title="下载和安装"></a>下载和安装</h2><p>从<a href="http://www.libsdl.org/download-2.0.php">SDL官网</a>下载对应系统的<strong>Development Libraries</strong>，如下图所示。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_downloadItem.png"></p>
 <p>双击打开下载的dmg文件，将SDL2.framework文件夹拖入Frameworks文件夹里。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_Item.png"><br>        Frameworks文件夹可以通过访达前往文件夹，<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_finder.png"><br>        输入如下:<br>        <code>/Library/Frameworks</code><br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_finder2.png"><br>        就OK了。</p>
@@ -62,6 +33,36 @@
 <p>转<strong>Xcode配置.步骤二</strong></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dyld: Library not loaded: @rpath&#x2F;hidapi.framework&#x2F;Versions&#x2F;A&#x2F;hidapi</span><br><span class="line">  Referenced from: &#x2F;Users&#x2F;fayeke&#x2F;Library&#x2F;Developer&#x2F;Xcode&#x2F;DerivedData&#x2F;Test-exeilrliaawdqhdhujvjtueqejrg&#x2F;Build&#x2F;Products&#x2F;Debug&#x2F;SDL2.framework&#x2F;Versions&#x2F;A&#x2F;SDL2</span><br><span class="line">  Reason: no suitable image found.  Did find:</span><br><span class="line">	&#x2F;Users&#x2F;fayeke&#x2F;Library&#x2F;Developer&#x2F;Xcode&#x2F;DerivedData&#x2F;Test-exeilrliaawdqhdhujvjtueqejrg&#x2F;Build&#x2F;Products&#x2F;Debug&#x2F;SDL2.framework&#x2F;Versions&#x2F;A&#x2F;Frameworks&#x2F;hidapi.framework&#x2F;Versions&#x2F;A&#x2F;hidapi: code signature in (&#x2F;Users&#x2F;fayeke&#x2F;Library&#x2F;Developer&#x2F;Xcode&#x2F;DerivedData&#x2F;Test-exeilrliaawdqhdhujvjtueqejrg&#x2F;Build&#x2F;Products&#x2F;Debug&#x2F;SDL2.framework&#x2F;Versions&#x2F;A&#x2F;Frameworks&#x2F;hidapi.framework&#x2F;Versions&#x2F;A&#x2F;hidapi) not valid for use in process using Library Validation: mapping process and mapped file (non-platform) have different Team IDs</span><br></pre></td></tr></table></figure>
 <p>转<strong>Xcode配置.步骤三</strong></p>
+]]></content>
+      <categories>
+        <category>基于SDL的游戏开发学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Xcode</tag>
+        <tag>SDL</tag>
+        <tag>MacOS</tag>
+        <tag>M1</tag>
+        <tag>游戏开发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DevLog002-Xcode使用SDL2_image安装配置</title>
+    <url>/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<h2 id="下载和安装"><a href="#下载和安装" class="headerlink" title="下载和安装"></a>下载和安装</h2><p>具体过程和<a href="https://fayeke.github.io/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/">SDL框架</a>的下载安装相同，从<a href="http://www.libsdl.org/projects/SDL_image/">这里</a>下载相应操作系统的Development Libraries。</p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="芯片架构问题"><a href="#芯片架构问题" class="headerlink" title="芯片架构问题"></a>芯片架构问题</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;yourProject.xcodeproj The linked and embedded framework &#39;SDL2_image.framework&#39; is missing one or more architectures required by this target: arm64.</span><br></pre></td></tr></table></figure>
+<p>兼容问题更改运行方式为Rosetta即可。<br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/image_01.png"><br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/image_02.png"></p>
+<h3 id="codesign问题"><a href="#codesign问题" class="headerlink" title="codesign问题"></a>codesign问题</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ctgmoccoynjrwpbprjqqektfmoac&#x2F;Build&#x2F;Products&#x2F;Debug&#x2F;yourProject.app&#x2F;Contents&#x2F;Frameworks&#x2F;SDL2_image.framework&#x2F;Versions&#x2F;A&#x2F;Frameworks&#x2F;webp.framework</span><br><span class="line">Command CodeSign failed with a nonzero exit code</span><br></pre></td></tr></table></figure>
+<p>最终我通过手动签名webp.framework和删除上一篇输入的Other code signing flags –deep解决了。罪魁祸首应该是–deep导致的，删除后SDL框架正常运行，SDL_image框架还没有使用，仅引用，程序正常运行。</p>
+<blockquote>
+<p>关于手动签名，我参考了stackoverflow的<a href="https://stackoverflow.com/questions/28665772/xcode-6-1-1-cannot-codesign-code-object-is-not-signed-at-all-with-only-1-fra">这个问题</a>下的回答。</p>
+</blockquote>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><blockquote>
+<p>等我切实使用SDL2_image框架后再说。</p>
+</blockquote>
+<h2 id="老规矩的碎碎念"><a href="#老规矩的碎碎念" class="headerlink" title="老规矩的碎碎念"></a>老规矩的碎碎念</h2><p>image老打成iamge，也不知道为什么，被自己气死。</p>
 ]]></content>
       <categories>
         <category>基于SDL的游戏开发学习</category>

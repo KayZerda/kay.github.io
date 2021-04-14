@@ -6,7 +6,7 @@
   <link href="https://fayeke.github.io/atom.xml" rel="self"/>
   
   <link href="https://fayeke.github.io/"/>
-  <updated>2021-04-14T09:33:59.150Z</updated>
+  <updated>2021-04-14T09:38:44.970Z</updated>
   <id>https://fayeke.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://fayeke.github.io/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
     <id>https://fayeke.github.io/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</id>
     <published>2021-04-14T09:02:00.000Z</published>
-    <updated>2021-04-14T09:33:59.150Z</updated>
+    <updated>2021-04-14T09:38:44.970Z</updated>
     
     
     <summary type="html">SDL2_image框架安装配置和过程中遇到的问题，以及我的最终解决方式</summary>
@@ -50,10 +50,12 @@
     <link href="https://fayeke.github.io/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/"/>
     <id>https://fayeke.github.io/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/</id>
     <published>2021-04-11T12:45:55.000Z</published>
-    <updated>2021-04-14T09:33:42.999Z</updated>
+    <updated>2021-04-14T09:37:49.754Z</updated>
     
     
-    <summary type="html">SDL2框架安装配置和过程中遇到的问题，以及我的最终解决方式</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;我的配置过程主要参考了&lt;a href=&quot;https://www.youtube.com/watch?v=JbsmRKi18SI&quot;&gt;这个视频&lt;/a&gt;(YouTube)，这个视频帮我解决了很多问题，感谢&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
     
     
     
