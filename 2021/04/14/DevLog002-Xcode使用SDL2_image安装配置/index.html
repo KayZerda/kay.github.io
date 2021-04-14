@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    DevLog002-Xcode使用SDL2_image安装配置 |
+    
+    过敏的太空小屋</title>
+  
+  <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="过敏的太空小屋" type="application/atom+xml">
+</head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-DevLog002-Xcode使用SDL2_image安装配置" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  DevLog002-Xcode使用SDL2_image安装配置
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time datetime="2021-04-14T09:02:00.000Z" itemprop="datePublished">2021-04-14</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/%E5%9F%BA%E4%BA%8ESDL%E7%9A%84%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/">基于SDL的游戏开发学习</a>
+</div>
+
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <h2 id="下载和安装"><a href="#下载和安装" class="headerlink" title="下载和安装"></a>下载和安装</h2><p>具体过程和<a href="https://fayeke.github.io/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/">SDL框架</a>的下载安装相同，从<a target="_blank" rel="noopener" href="http://www.libsdl.org/projects/SDL_image/">这里</a>下载相应操作系统的Development Libraries。</p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="芯片架构问题"><a href="#芯片架构问题" class="headerlink" title="芯片架构问题"></a>芯片架构问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;yourProject.xcodeproj The linked and embedded framework &#39;SDL2_image.framework&#39; is missing one or more architectures required by this target: arm64.</span><br></pre></td></tr></table></figure>
+<p>兼容问题更改运行方式为Rosetta即可。<br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/image_01.png"><br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/image_02.png"></p>
+<h3 id="codesign问题"><a href="#codesign问题" class="headerlink" title="codesign问题"></a>codesign问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ctgmoccoynjrwpbprjqqektfmoac&#x2F;Build&#x2F;Products&#x2F;Debug&#x2F;yourProject.app&#x2F;Contents&#x2F;Frameworks&#x2F;SDL2_image.framework&#x2F;Versions&#x2F;A&#x2F;Frameworks&#x2F;webp.framework</span><br><span class="line">Command CodeSign failed with a nonzero exit code</span><br></pre></td></tr></table></figure>
+<p>最终我通过手动签名webp.framework和删除上一篇输入的Other code signing flags –deep解决了。罪魁祸首应该是–deep导致的，删除后SDL框架正常运行，SDL_image框架还没有使用，仅引用，程序正常运行。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><blockquote>
+<p>等我切实使用SDL2_image框架后再说。</p>
+</blockquote>
+<h2 id="老规矩的碎碎念"><a href="#老规矩的碎碎念" class="headerlink" title="老规矩的碎碎念"></a>老规矩的碎碎念</h2><p>image老打成iamge，也不知道为什么，被自己气死。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://fayeke.github.io/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" data-id="cknh906c6000fstpj22kld5n7" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/M1/" rel="tag">M1</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MacOS/" rel="tag">MacOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SDL/" rel="tag">SDL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode/" rel="tag">Xcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="tag">游戏开发</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  
+  <a href="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">DevLog001_Xcode使用SDL2安装配置(M1)</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '4f514d728c5aaa2806c7',
+    clientSecret: '2f510164d2386459efe22cbf0653f0f638243ba0',
+    repo: 'hexoGitalk',
+    owner: 'FayeKe',
+    admin: ['FayeKe'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>过敏的太空小屋 &copy; 2021</li>
+      
+        <li></li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+      <li>Free B-Roll by  <a target="_blank" rel="noopener" href="http://videezy.com/">Videezy</a></li>
+    </ul>
+  </div>
+</footer>
+
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="过敏的太空小屋"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

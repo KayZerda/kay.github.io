@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>DevLog002-Xcode使用SDL2_image安装配置</title>
+    <url>/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h2 id="下载和安装"><a href="#下载和安装" class="headerlink" title="下载和安装"></a>下载和安装</h2><p>具体过程和<a href="https://fayeke.github.io/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/">SDL框架</a>的下载安装相同，从<a href="http://www.libsdl.org/projects/SDL_image/">这里</a>下载相应操作系统的Development Libraries。</p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="芯片架构问题"><a href="#芯片架构问题" class="headerlink" title="芯片架构问题"></a>芯片架构问题</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;yourProject.xcodeproj The linked and embedded framework &#39;SDL2_image.framework&#39; is missing one or more architectures required by this target: arm64.</span><br></pre></td></tr></table></figure>
+<p>兼容问题更改运行方式为Rosetta即可。<br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/image_01.png"><br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/image_02.png"></p>
+<h3 id="codesign问题"><a href="#codesign问题" class="headerlink" title="codesign问题"></a>codesign问题</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ctgmoccoynjrwpbprjqqektfmoac&#x2F;Build&#x2F;Products&#x2F;Debug&#x2F;yourProject.app&#x2F;Contents&#x2F;Frameworks&#x2F;SDL2_image.framework&#x2F;Versions&#x2F;A&#x2F;Frameworks&#x2F;webp.framework</span><br><span class="line">Command CodeSign failed with a nonzero exit code</span><br></pre></td></tr></table></figure>
+<p>最终我通过手动签名webp.framework和删除上一篇输入的Other code signing flags –deep解决了。罪魁祸首应该是–deep导致的，删除后SDL框架正常运行，SDL_image框架还没有使用，仅引用，程序正常运行。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><blockquote>
+<p>等我切实使用SDL2_image框架后再说。</p>
+</blockquote>
+<h2 id="老规矩的碎碎念"><a href="#老规矩的碎碎念" class="headerlink" title="老规矩的碎碎念"></a>老规矩的碎碎念</h2><p>image老打成iamge，也不知道为什么，被自己气死。</p>
+]]></content>
+      <categories>
+        <category>基于SDL的游戏开发学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Xcode</tag>
+        <tag>SDL</tag>
+        <tag>MacOS</tag>
+        <tag>M1</tag>
+        <tag>游戏开发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DevLog001_Xcode使用SDL2安装配置(M1)</title>
     <url>/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/</url>
     <content><![CDATA[<blockquote>
@@ -13,13 +38,13 @@
 <h3 id="步骤二"><a href="#步骤二" class="headerlink" title="步骤二"></a>步骤二</h3><p>确保框架Embed&amp;Sign，如果不是，将其置为Embed&amp;Sign。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_xcode4.png"></p>
 <h3 id="步骤三"><a href="#步骤三" class="headerlink" title="步骤三"></a>步骤三</h3><p>如图。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_xcode6.png"></p>
 <blockquote>
-<p>注意，这个方法来源于我开头提到的视频，我对这个做法的原理暂时还不太清楚。</p>
+<p>注意，这个方法来源于我开头提到的视频，我对这个做法的原理暂时还不太清楚。<br>4月14日补充，这一步再后面导致了一些问题，已解决。</p>
 </blockquote>
 <h2 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;SDL2&#x2F;SDL.h&gt;</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">    int sdlResult&#x3D;SDL_Init(SDL_INIT_VIDEO);</span><br><span class="line">    if(sdlResult!&#x3D;0)&#123;</span><br><span class="line">        SDL_Log(&quot;Unable to initialize SDL: %s&quot;,SDL_GetError());</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;初始化窗口</span><br><span class="line">        SDL_Window* mWindow &#x3D; SDL_CreateWindow(&quot;Game with SDL2&quot;,&#x2F;&#x2F; window title</span><br><span class="line">                             SDL_WINDOWPOS_UNDEFINED,           &#x2F;&#x2F; initial x position</span><br><span class="line">                             SDL_WINDOWPOS_UNDEFINED,           &#x2F;&#x2F; initial y position</span><br><span class="line">                             640,                               &#x2F;&#x2F; width, in pixels</span><br><span class="line">                             480,                               &#x2F;&#x2F; height, in pixels</span><br><span class="line">                             SDL_WINDOW_OPENGL                  &#x2F;&#x2F; flags - see below</span><br><span class="line">    );</span><br><span class="line">    if(!mWindow)&#123;</span><br><span class="line">        SDL_Log(&quot;Failed to create window: %s&quot;, SDL_GetError());</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    bool mIsRunning &#x3D; true;</span><br><span class="line">    while(mIsRunning)&#123;</span><br><span class="line">        SDL_Event event;</span><br><span class="line">        while(SDL_PollEvent(&amp;event))&#123;</span><br><span class="line">            switch (event.type) &#123;</span><br><span class="line">                case SDL_QUIT:</span><br><span class="line">                    mIsRunning &#x3D; false;</span><br><span class="line">                    break;</span><br><span class="line">                    </span><br><span class="line">                default:</span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    SDL_DestroyWindow(mWindow);</span><br><span class="line">    SDL_Quit();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>如果成功运行，就会出现一个名为Game with SDL2的窗口。它持续保持打开状态，直到你关掉它。</p>
 <p><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_result.png"></p>
-<h2 id="可-wo-能-yu-存-dao-在-guo-的问题"><a href="#可-wo-能-yu-存-dao-在-guo-的问题" class="headerlink" title="可(wo)能(yu)存(dao)在(guo)的问题"></a>可(wo)能(yu)存(dao)在(guo)的问题</h2><blockquote>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><blockquote>
 <p>👩🏻‍💻如果以下方法无法解决问题，或者是其他错误，就触及到我的知识盲区了。</p>
 </blockquote>
 <h3 id="build-failed"><a href="#build-failed" class="headerlink" title="build failed"></a>build failed</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;SDL2&#x2F;SDL.h&#39; file not found</span><br></pre></td></tr></table></figure>
