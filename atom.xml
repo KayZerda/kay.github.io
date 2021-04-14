@@ -6,7 +6,7 @@
   <link href="https://fayeke.github.io/atom.xml" rel="self"/>
   
   <link href="https://fayeke.github.io/"/>
-  <updated>2021-04-14T09:38:44.970Z</updated>
+  <updated>2021-04-14T09:43:18.384Z</updated>
   <id>https://fayeke.github.io/</id>
   
   <author>
@@ -21,10 +21,10 @@
     <link href="https://fayeke.github.io/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
     <id>https://fayeke.github.io/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</id>
     <published>2021-04-14T09:02:00.000Z</published>
-    <updated>2021-04-14T09:38:44.970Z</updated>
+    <updated>2021-04-14T09:43:18.384Z</updated>
     
     
-    <summary type="html">SDL2_image框架安装配置和过程中遇到的问题，以及我的最终解决方式</summary>
+    <summary type="html">&lt;p&gt;SDL2_image框架配置过程中遇到的问题，以及我的最终解决方式。&lt;/p&gt;</summary>
     
     
     

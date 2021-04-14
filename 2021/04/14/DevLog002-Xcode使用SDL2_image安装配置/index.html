@@ -6,8 +6,6 @@
   
   
   
-  <meta name="description" content="SDL2_image框架安装配置和过程中遇到的问题，以及我的最终解决方式">
-  
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
     DevLog002-Xcode使用SDL2_image安装配置 |
@@ -73,7 +71,8 @@
       
       
       
-      <span id="more"></span>
+      <p>SDL2_image框架配置过程中遇到的问题，以及我的最终解决方式。</p>
+<span id="more"></span>
 
 <h2 id="下载和安装"><a href="#下载和安装" class="headerlink" title="下载和安装"></a>下载和安装</h2><p>具体过程和<a href="https://fayeke.github.io/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/">SDL框架</a>的下载安装相同，从<a target="_blank" rel="noopener" href="http://www.libsdl.org/projects/SDL_image/">这里</a>下载相应操作系统的Development Libraries。</p>
 <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="芯片架构问题"><a href="#芯片架构问题" class="headerlink" title="芯片架构问题"></a>芯片架构问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;yourProject.xcodeproj The linked and embedded framework &#39;SDL2_image.framework&#39; is missing one or more architectures required by this target: arm64.</span><br></pre></td></tr></table></figure>
@@ -91,7 +90,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://fayeke.github.io/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" data-id="cknh9hsyg00010epj79o5g6es" class="article-share-link">
+      <a data-url="https://fayeke.github.io/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" data-id="cknh9ngq1000032pjeufk5jlw" class="article-share-link">
         分享
       </a>
       
