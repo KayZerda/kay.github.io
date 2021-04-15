@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>DevLog003-Mac动态库签名问题：最好的解决方式就是手动解决</title>
+    <url>/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/</url>
+    <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dyld: Library not loaded: ...</span><br><span class="line">  Referenced from: ...</span><br><span class="line">  Reason: no suitable image found.  Did find:</span><br><span class="line">	...: code signature in (...) not valid for use in process using Library Validation: mapping process and mapped file (non-platform) have different Team IDs</span><br></pre></td></tr></table></figure>
+
+<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><h3 id="手动签名"><a href="#手动签名" class="headerlink" title="手动签名"></a>手动签名</h3><p>首先确认Code Signing Identity的值，保持手动签名时名称一致，例如这里时Apple Development。<br>![](截屏2021-04-15 下午7.23.28.png)<br>打开终端，定位到Frameworks文件夹，打开需要签名的库，例如SDL2，使用:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">codesign -f -s &quot;Apple Development SDL2&quot; </span><br></pre></td></tr></table></figure>
+<p>对SDL2进行签名。<br>用相同的方式对SDL2中的Frameworks进行签名。</p>
+]]></content>
+      <categories>
+        <category>基于SDL的游戏开发学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Xcode</tag>
+        <tag>SDL</tag>
+        <tag>MacOS</tag>
+        <tag>M1</tag>
+        <tag>游戏开发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DevLog002-Xcode使用SDL2_image安装配置</title>
     <url>/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<p>SDL可以处理.bmp格式图片，但如果想在项目中使用.png、.jpg等格式的图片，就需要引入SDL2_image库。</p>
@@ -12,7 +33,7 @@
 <h3 id="codesign问题"><a href="#codesign问题" class="headerlink" title="codesign问题"></a>codesign问题</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ctgmoccoynjrwpbprjqqektfmoac&#x2F;Build&#x2F;Products&#x2F;Debug&#x2F;yourProject.app&#x2F;Contents&#x2F;Frameworks&#x2F;SDL2_image.framework&#x2F;Versions&#x2F;A&#x2F;Frameworks&#x2F;webp.framework</span><br><span class="line">Command CodeSign failed with a nonzero exit code</span><br></pre></td></tr></table></figure>
 <p>最终我通过手动签名webp.framework和删除上一篇输入的Other code signing flags –deep解决了。罪魁祸首应该是–deep导致的，删除后SDL框架正常运行，SDL_image框架还没有使用，仅引用，程序正常运行。</p>
 <blockquote>
-<p>关于手动签名，我参考了stackoverflow的<a href="https://stackoverflow.com/questions/28665772/xcode-6-1-1-cannot-codesign-code-object-is-not-signed-at-all-with-only-1-fra">这个问题</a>下的回答。</p>
+<p>关于手动签名，我参考了stackoverflow的<a href="https://stackoverflow.com/questions/28665772/xcode-6-1-1-cannot-codesign-code-object-is-not-signed-at-all-with-only-1-fra">这个问题</a>下的回答。<br>4.15更新: 补充，上述手动签名方法中identify是默认的Sign to run locally</p>
 </blockquote>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><blockquote>
 <p>等我切实使用SDL2_image框架后再说。</p>
@@ -32,7 +53,7 @@
       </tags>
   </entry>
   <entry>
-    <title>DevLog001_Xcode使用SDL2安装配置(M1)</title>
+    <title>DevLog001-Xcode使用SDL2安装配置(M1)</title>
     <url>/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/</url>
     <content><![CDATA[<blockquote>
 <p>我的配置过程主要参考了<a href="https://www.youtube.com/watch?v=JbsmRKi18SI">这个视频</a>(YouTube)，这个视频帮我解决了很多问题，感谢</p>
@@ -44,9 +65,8 @@
 <p>双击打开下载的dmg文件，将SDL2.framework文件夹拖入Frameworks文件夹里。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_Item.png"><br>        Frameworks文件夹可以通过访达前往文件夹，<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_finder.png"><br>        输入如下:<br>        <code>/Library/Frameworks</code><br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_finder2.png"><br>        就OK了。</p>
 <h2 id="Xcode配置"><a href="#Xcode配置" class="headerlink" title="Xcode配置"></a>Xcode配置</h2><h3 id="步骤一"><a href="#步骤一" class="headerlink" title="步骤一"></a>步骤一</h3><p>新建一个项目，选择Command Line Tool，语言选择C++。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_xcode1.png"><br>        配置项目，添加SDL2.framework。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_xcode2.png"><br>        选择Add Other，Add file，从硬盘/Library/Frameworks可以很容易地找到SDL2.framework文件夹。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_xcode3.png"></p>
 <h3 id="步骤二"><a href="#步骤二" class="headerlink" title="步骤二"></a>步骤二</h3><p>确保框架Embed&amp;Sign，如果不是，将其置为Embed&amp;Sign。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_xcode4.png"></p>
-<h3 id="步骤三"><a href="#步骤三" class="headerlink" title="步骤三"></a>步骤三</h3><p>如图。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_xcode6.png"></p>
-<blockquote>
-<p>注意，这个方法来源于我开头提到的视频，我对这个做法的原理暂时还不太清楚。<br>4月14日补充，这一步再后面导致了一些问题，已解决。</p>
+<h3 id="步骤三"><a href="#步骤三" class="headerlink" title="步骤三"></a>步骤三</h3><blockquote>
+<p>4.15更新: 这一步可以不用看，如果遇到codesign的问题看最终解决方案<br>如图。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_xcode6.png"><br>注意，这个方法来源于我开头提到的视频，我对这个做法的原理暂时还不太清楚。</p>
 </blockquote>
 <h2 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;SDL2&#x2F;SDL.h&gt;</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">    int sdlResult&#x3D;SDL_Init(SDL_INIT_VIDEO);</span><br><span class="line">    if(sdlResult!&#x3D;0)&#123;</span><br><span class="line">        SDL_Log(&quot;Unable to initialize SDL: %s&quot;,SDL_GetError());</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;初始化窗口</span><br><span class="line">        SDL_Window* mWindow &#x3D; SDL_CreateWindow(&quot;Game with SDL2&quot;,&#x2F;&#x2F; window title</span><br><span class="line">                             SDL_WINDOWPOS_UNDEFINED,           &#x2F;&#x2F; initial x position</span><br><span class="line">                             SDL_WINDOWPOS_UNDEFINED,           &#x2F;&#x2F; initial y position</span><br><span class="line">                             640,                               &#x2F;&#x2F; width, in pixels</span><br><span class="line">                             480,                               &#x2F;&#x2F; height, in pixels</span><br><span class="line">                             SDL_WINDOW_OPENGL                  &#x2F;&#x2F; flags - see below</span><br><span class="line">    );</span><br><span class="line">    if(!mWindow)&#123;</span><br><span class="line">        SDL_Log(&quot;Failed to create window: %s&quot;, SDL_GetError());</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    bool mIsRunning &#x3D; true;</span><br><span class="line">    while(mIsRunning)&#123;</span><br><span class="line">        SDL_Event event;</span><br><span class="line">        while(SDL_PollEvent(&amp;event))&#123;</span><br><span class="line">            switch (event.type) &#123;</span><br><span class="line">                case SDL_QUIT:</span><br><span class="line">                    mIsRunning &#x3D; false;</span><br><span class="line">                    break;</span><br><span class="line">                    </span><br><span class="line">                default:</span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    SDL_DestroyWindow(mWindow);</span><br><span class="line">    SDL_Quit();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
