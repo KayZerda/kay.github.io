@@ -80,17 +80,17 @@
 <h3 id="codesign问题"><a href="#codesign问题" class="headerlink" title="codesign问题"></a>codesign问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ctgmoccoynjrwpbprjqqektfmoac&#x2F;Build&#x2F;Products&#x2F;Debug&#x2F;yourProject.app&#x2F;Contents&#x2F;Frameworks&#x2F;SDL2_image.framework&#x2F;Versions&#x2F;A&#x2F;Frameworks&#x2F;webp.framework</span><br><span class="line">Command CodeSign failed with a nonzero exit code</span><br></pre></td></tr></table></figure>
 <p>最终我通过手动签名webp.framework和删除上一篇输入的Other code signing flags –deep解决了。罪魁祸首应该是–deep导致的，删除后SDL框架正常运行，SDL_image框架还没有使用，仅引用，程序正常运行。</p>
 <blockquote>
-<p>关于手动签名，我参考了stackoverflow的<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/28665772/xcode-6-1-1-cannot-codesign-code-object-is-not-signed-at-all-with-only-1-fra">这个问题</a>下的回答。<br>4.15更新: 补充，上述手动签名方法中identify是默认的Sign to run locally</p>
+<p>关于手动签名，我参考了stackoverflow的<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/28665772/xcode-6-1-1-cannot-codesign-code-object-is-not-signed-at-all-with-only-1-fra">这个问题</a>下的回答。<br>4.15更新: 补充，上述手动签名方法中identify是默认的Sign to run locally，具体见[最终解决方案](&gt; 4.15更新: 下述都是codesign的问题，看<a href="https://fayeke.github.io/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/">最终解决方案</a>)</p>
 </blockquote>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><blockquote>
-<p>等我切实使用SDL2_image框架后再说。</p>
+<h3 id="图片路径正确但无法加载图片"><a href="#图片路径正确但无法加载图片" class="headerlink" title="图片路径正确但无法加载图片"></a>图片路径正确但无法加载图片</h3><blockquote>
+<p>方案来源于网络，地址忘记存了<br>在Product &gt; Scheme &gt; Edit Scheme中，选择Run &gt; Options<br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/image_03.png"><br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/image_04.png"><br>检查Working Directory，Use custom working directory，选择项目所在的文件夹，就可以在代码中使用相对路径加载本地图片。</p>
 </blockquote>
 <h2 id="老规矩的碎碎念"><a href="#老规矩的碎碎念" class="headerlink" title="老规矩的碎碎念"></a>老规矩的碎碎念</h2><p>image老打成iamge，也不知道为什么，被自己气死。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://fayeke.github.io/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" data-id="ckniunzri0001h4pj05ujct3l" class="article-share-link">
+      <a data-url="https://fayeke.github.io/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" data-id="cknjwc2za000fwgpj1goo7ff9" class="article-share-link">
         分享
       </a>
       

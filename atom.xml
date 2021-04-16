@@ -50,7 +50,7 @@
     <link href="https://fayeke.github.io/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
     <id>https://fayeke.github.io/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</id>
     <published>2021-04-14T09:02:00.000Z</published>
-    <updated>2021-04-15T11:32:06.707Z</updated>
+    <updated>2021-04-16T05:53:00.843Z</updated>
     
     
     <summary type="html">&lt;p&gt;SDL可以处理.bmp格式图片，但如果想在项目中使用.png、.jpg等格式的图片，就需要引入SDL2_image库。&lt;/p&gt;</summary>
@@ -79,7 +79,7 @@
     <link href="https://fayeke.github.io/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/"/>
     <id>https://fayeke.github.io/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/</id>
     <published>2021-04-11T12:45:55.000Z</published>
-    <updated>2021-04-15T11:30:26.393Z</updated>
+    <updated>2021-04-16T05:34:39.205Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
