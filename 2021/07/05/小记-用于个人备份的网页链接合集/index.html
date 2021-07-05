@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    DevLog003-Mac动态库签名问题：最好的解决方式就是手动解决 |
+    小记-用于个人备份的网页链接合集 |
     
     过敏的太空小屋</title>
   
@@ -31,7 +31,7 @@
 <body>
   <main class="content">
     <section class="outer">
-  <article id="post-DevLog003-Mac动态库签名问题：最好的解决方式就是手动解决" class="article article-type-post" itemscope
+  <article id="post-小记-用于个人备份的网页链接合集" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -40,7 +40,7 @@
       
 
 <h1 class="article-title" itemprop="name">
-  DevLog003-Mac动态库签名问题：最好的解决方式就是手动解决
+  小记-用于个人备份的网页链接合集
 </h1>
 
 
@@ -50,12 +50,12 @@
 
     
     <div class="article-meta">
-      <a href="/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/" class="article-date">
-  <time datetime="2021-04-15T11:20:00.000Z" itemprop="datePublished">2021-04-15</time>
+      <a href="/2021/07/05/%E5%B0%8F%E8%AE%B0-%E7%94%A8%E4%BA%8E%E4%B8%AA%E4%BA%BA%E5%A4%87%E4%BB%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E9%93%BE%E6%8E%A5%E5%90%88%E9%9B%86/" class="article-date">
+  <time datetime="2021-07-05T12:01:00.000Z" itemprop="datePublished">2021-07-05</time>
 </a>
       
 <div class="article-category">
-  <a class="article-category-link" href="/categories/%E5%9F%BA%E4%BA%8ESDL%E7%9A%84%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/">基于SDL的游戏开发学习</a>
+  <a class="article-category-link" href="/categories/%E5%B0%8F%E8%AE%B0/">小记</a>
 </div>
 
     </div>
@@ -71,21 +71,19 @@
       
       
       
-      <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dyld: Library not loaded: ...</span><br><span class="line">  Referenced from: ...</span><br><span class="line">  Reason: no suitable image found.  Did find:</span><br><span class="line">	...: code signature in (...) not valid for use in process using Library Validation: mapping process and mapped file (non-platform) have different Team IDs</span><br></pre></td></tr></table></figure>
+      <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">包含：各种问题的解决方案，优秀博客博文等。</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
 
-<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><h3 id="手动签名"><a href="#手动签名" class="headerlink" title="手动签名"></a>手动签名</h3><p>首先确认Code Signing Identity的值，保持手动签名时名称一致，例如这里时Apple Development。<br><img src="/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/solution.png"><br>打开终端，定位到Frameworks文件夹，打开需要签名的库，例如SDL2，使用:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">codesign -f -s &quot;Apple Development&quot; SDL2 </span><br></pre></td></tr></table></figure>
-<p>对SDL2进行签名。<br>其中 -f 代表强制重新签名。<br>用相同的方式对SDL2中的Frameworks进行签名。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="GitPage博客无法收录"><a href="#GitPage博客无法收录" class="headerlink" title="GitPage博客无法收录"></a>GitPage博客无法收录</h3><p><a target="_blank" rel="noopener" href="https://www.dazhuanlan.com/2020/01/21/5e26fde79178c/">《针对Github屏蔽百度爬虫导致博客无法收录解决办法》</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://fayeke.github.io/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/" data-id="cknjwc2za000gwgpj5nj12fci" class="article-share-link">
+      <a data-url="https://fayeke.github.io/2021/07/05/%E5%B0%8F%E8%AE%B0-%E7%94%A8%E4%BA%8E%E4%B8%AA%E4%BA%BA%E5%A4%87%E4%BB%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E9%93%BE%E6%8E%A5%E5%90%88%E9%9B%86/" data-id="ckqqktaoe0000uapjdz4taaaj" class="article-share-link">
         分享
       </a>
       
-<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/M1/" rel="tag">M1</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MacOS/" rel="tag">MacOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SDL/" rel="tag">SDL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode/" rel="tag">Xcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="tag">游戏开发</a></li></ul>
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
 
     </footer>
 
@@ -95,19 +93,10 @@
   
 <nav class="article-nav">
   
-  <a href="/2021/07/05/%E5%B0%8F%E8%AE%B0-%E7%94%A8%E4%BA%8E%E4%B8%AA%E4%BA%BA%E5%A4%87%E4%BB%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E9%93%BE%E6%8E%A5%E5%90%88%E9%9B%86/" class="article-nav-link">
-    <strong class="article-nav-caption">前一篇</strong>
-    <div class="article-nav-title">
-      
-      小记-用于个人备份的网页链接合集
-      
-    </div>
-  </a>
   
-  
-  <a href="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" class="article-nav-link">
+  <a href="/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/" class="article-nav-link">
     <strong class="article-nav-caption">后一篇</strong>
-    <div class="article-nav-title">DevLog002-Xcode使用SDL2_image安装配置</div>
+    <div class="article-nav-title">DevLog003-Mac动态库签名问题：最好的解决方式就是手动解决</div>
   </a>
   
 </nav>
