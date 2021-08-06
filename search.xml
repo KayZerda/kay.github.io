@@ -1,54 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>DevLog001-Xcode使用SDL2安装配置(M1)</title>
-    <url>/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/</url>
-    <content><![CDATA[<blockquote>
-<p>我的配置过程主要参考了<a href="https://www.youtube.com/watch?v=JbsmRKi18SI">这个视频</a>(YouTube)，这个视频帮我解决了很多问题，感谢</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h2><p>我的设备是MacBook Air(M1)，最新版(截至本文编辑)Xcode。<br>由于这是我的第一台使用macOS的电脑，对<strong>签名</strong>等概念并不熟悉，属实浪费了很多时间。<br>根据我安装配置的情况来看，M1对于SDL2框架的使用并无影响，在正确配置后，如果出现窗口没有出现等情况，多半是代码上的错误(说的就是我自己👉🏼🤡)。</p>
-<h2 id="下载和安装"><a href="#下载和安装" class="headerlink" title="下载和安装"></a>下载和安装</h2><p>从<a href="http://www.libsdl.org/download-2.0.php">SDL官网</a>下载对应系统的<strong>Development Libraries</strong>，如下图所示。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_downloadItem.png"></p>
-<p>双击打开下载的dmg文件，将SDL2.framework文件夹拖入Frameworks文件夹里。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_Item.png"><br>        Frameworks文件夹可以通过访达前往文件夹，<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_finder.png"><br>        输入如下:<br>        <code>/Library/Frameworks</code><br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_finder2.png"><br>        就OK了。</p>
-<h2 id="Xcode配置"><a href="#Xcode配置" class="headerlink" title="Xcode配置"></a>Xcode配置</h2><h3 id="步骤一"><a href="#步骤一" class="headerlink" title="步骤一"></a>步骤一</h3><p>新建一个项目，选择Command Line Tool，语言选择C++。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_xcode1.png"><br>        配置项目，添加SDL2.framework。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_xcode2.png"><br>        选择Add Other，Add file，从硬盘/Library/Frameworks可以很容易地找到SDL2.framework文件夹。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_xcode3.png"></p>
-<h3 id="步骤二"><a href="#步骤二" class="headerlink" title="步骤二"></a>步骤二</h3><p>确保框架Embed&amp;Sign，如果不是，将其置为Embed&amp;Sign。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_xcode4.png"></p>
-<h3 id="步骤三"><a href="#步骤三" class="headerlink" title="步骤三"></a>步骤三</h3><blockquote>
-<p>4.15更新: 这一步可以不用看，如果遇到codesign的问题看<a href="https://fayeke.github.io/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/">最终解决方案</a><br>如图。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_xcode6.png"><br>注意，这个方法来源于我开头提到的视频，我对这个做法的原理暂时还不太清楚。</p>
-</blockquote>
-<h2 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;SDL2/SDL.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sdlResult=<span class="built_in">SDL_Init</span>(SDL_INIT_VIDEO);</span><br><span class="line">    <span class="keyword">if</span>(sdlResult!=<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">SDL_Log</span>(<span class="string">&quot;Unable to initialize SDL: %s&quot;</span>,<span class="built_in">SDL_GetError</span>());</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//初始化窗口</span></span><br><span class="line">        SDL_Window* mWindow = <span class="built_in">SDL_CreateWindow</span>(<span class="string">&quot;Game with SDL2&quot;</span>,<span class="comment">// window title</span></span><br><span class="line">                             SDL_WINDOWPOS_UNDEFINED,           <span class="comment">// initial x position</span></span><br><span class="line">                             SDL_WINDOWPOS_UNDEFINED,           <span class="comment">// initial y position</span></span><br><span class="line">                             <span class="number">640</span>,                               <span class="comment">// width, in pixels</span></span><br><span class="line">                             <span class="number">480</span>,                               <span class="comment">// height, in pixels</span></span><br><span class="line">                             SDL_WINDOW_OPENGL                  <span class="comment">// flags - see below</span></span><br><span class="line">    );</span><br><span class="line">    <span class="keyword">if</span>(!mWindow)&#123;</span><br><span class="line">        <span class="built_in">SDL_Log</span>(<span class="string">&quot;Failed to create window: %s&quot;</span>, <span class="built_in">SDL_GetError</span>());</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">bool</span> mIsRunning = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">while</span>(mIsRunning)&#123;</span><br><span class="line">        SDL_Event event;</span><br><span class="line">        <span class="keyword">while</span>(<span class="built_in">SDL_PollEvent</span>(&amp;event))&#123;</span><br><span class="line">            <span class="built_in"><span class="keyword">switch</span></span> (event.type) &#123;</span><br><span class="line">                <span class="keyword">case</span> SDL_QUIT:</span><br><span class="line">                    mIsRunning = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                    </span><br><span class="line">                <span class="keyword">default</span>:</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">SDL_DestroyWindow</span>(mWindow);</span><br><span class="line">    <span class="built_in">SDL_Quit</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果成功运行，就会出现一个名为Game with SDL2的窗口。它持续保持打开状态，直到你关掉它。</p>
-<p><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_result.png"></p>
-<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><blockquote>
-<p>👩🏻‍💻如果以下方法无法解决问题，或者是其他错误，就触及到我的知识盲区了。</p>
-</blockquote>
-<h3 id="build-failed"><a href="#build-failed" class="headerlink" title="build failed"></a>build failed</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;SDL2&#x2F;SDL.h&#39; file not found</span><br></pre></td></tr></table></figure>
-<p>转<strong>Xcode配置.步骤一</strong><br>或 Product -&gt; Clean build folder</p>
-<blockquote>
-<p>有时会在运行成功生成窗口后，出现这个错误，我并不清楚原因所在，不过程序仍然可以正常运行……希望有知道的朋友可以在评论区交流一下。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_strangeError.png"></p>
-</blockquote>
-<h3 id="build-successed"><a href="#build-successed" class="headerlink" title="build successed"></a>build successed</h3><blockquote>
-<p>4.15更新: 下述都是codesign的问题，看<a href="https://fayeke.github.io/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/">最终解决方案</a></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dyld: Library not loaded: @rpath&#x2F;SDL2.framework&#x2F;Versions&#x2F;A&#x2F;SDL2</span><br><span class="line">  Referenced from: &#x2F;Users&#x2F;fayeke&#x2F;Library&#x2F;Developer&#x2F;Xcode&#x2F;DerivedData&#x2F;Test-exeilrliaawdqhdhujvjtueqejrg&#x2F;Build&#x2F;Products&#x2F;Debug&#x2F;Test</span><br><span class="line">  Reason: no suitable image found.  Did find:</span><br><span class="line">	&#x2F;Library&#x2F;Frameworks&#x2F;SDL2.framework&#x2F;Versions&#x2F;A&#x2F;SDL2: code signature in (&#x2F;Library&#x2F;Frameworks&#x2F;SDL2.framework&#x2F;Versions&#x2F;A&#x2F;SDL2) not valid for use in process using Library Validation: mapping process and mapped file (non-platform) have different Team IDs</span><br></pre></td></tr></table></figure>
-<p>转<strong>Xcode配置.步骤二</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dyld: Library not loaded: @rpath&#x2F;hidapi.framework&#x2F;Versions&#x2F;A&#x2F;hidapi</span><br><span class="line">  Referenced from: &#x2F;Users&#x2F;fayeke&#x2F;Library&#x2F;Developer&#x2F;Xcode&#x2F;DerivedData&#x2F;Test-exeilrliaawdqhdhujvjtueqejrg&#x2F;Build&#x2F;Products&#x2F;Debug&#x2F;SDL2.framework&#x2F;Versions&#x2F;A&#x2F;SDL2</span><br><span class="line">  Reason: no suitable image found.  Did find:</span><br><span class="line">	&#x2F;Users&#x2F;fayeke&#x2F;Library&#x2F;Developer&#x2F;Xcode&#x2F;DerivedData&#x2F;Test-exeilrliaawdqhdhujvjtueqejrg&#x2F;Build&#x2F;Products&#x2F;Debug&#x2F;SDL2.framework&#x2F;Versions&#x2F;A&#x2F;Frameworks&#x2F;hidapi.framework&#x2F;Versions&#x2F;A&#x2F;hidapi: code signature in (&#x2F;Users&#x2F;fayeke&#x2F;Library&#x2F;Developer&#x2F;Xcode&#x2F;DerivedData&#x2F;Test-exeilrliaawdqhdhujvjtueqejrg&#x2F;Build&#x2F;Products&#x2F;Debug&#x2F;SDL2.framework&#x2F;Versions&#x2F;A&#x2F;Frameworks&#x2F;hidapi.framework&#x2F;Versions&#x2F;A&#x2F;hidapi) not valid for use in process using Library Validation: mapping process and mapped file (non-platform) have different Team IDs</span><br></pre></td></tr></table></figure>
-<p>转<strong>Xcode配置.步骤三</strong></p>
-]]></content>
-      <categories>
-        <category>基于SDL的游戏开发学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Xcode</tag>
-        <tag>SDL</tag>
-        <tag>MacOS</tag>
-        <tag>M1</tag>
-        <tag>游戏开发</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Unity学习001-简单的电梯实现</title>
     <url>/2021/08/05/Unity%E5%AD%A6%E4%B9%A0001-%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%B5%E6%A2%AF%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<p>计划学习实现一个电梯系统，先从简单模仿上下移动入手，写篇博客记录一下思路和过程。</p>
@@ -93,6 +45,20 @@
       </tags>
   </entry>
   <entry>
+    <title>小记-用于个人备份的网页链接合集</title>
+    <url>/2021/07/05/%E5%B0%8F%E8%AE%B0-%E7%94%A8%E4%BA%8E%E4%B8%AA%E4%BA%BA%E5%A4%87%E4%BB%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E9%93%BE%E6%8E%A5%E5%90%88%E9%9B%86/</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">包含：各种问题的解决方案，优秀博客博文等。</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2>]]></content>
+      <categories>
+        <category>小记</category>
+      </categories>
+      <tags>
+        <tag>其他</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DevLog003-Mac动态库签名问题：最好的解决方式就是手动解决</title>
     <url>/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/</url>
     <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dyld: Library not loaded: ...</span><br><span class="line">  Referenced from: ...</span><br><span class="line">  Reason: no suitable image found.  Did find:</span><br><span class="line">	...: code signature in (...) not valid for use in process using Library Validation: mapping process and mapped file (non-platform) have different Team IDs</span><br></pre></td></tr></table></figure>
@@ -115,20 +81,6 @@
       </tags>
   </entry>
   <entry>
-    <title>小记-用于个人备份的网页链接合集</title>
-    <url>/2021/07/05/%E5%B0%8F%E8%AE%B0-%E7%94%A8%E4%BA%8E%E4%B8%AA%E4%BA%BA%E5%A4%87%E4%BB%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E9%93%BE%E6%8E%A5%E5%90%88%E9%9B%86/</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">包含：各种问题的解决方案，优秀博客博文等。</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2>]]></content>
-      <categories>
-        <category>小记</category>
-      </categories>
-      <tags>
-        <tag>其他</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>DevLog002-Xcode使用SDL2_image安装配置</title>
     <url>/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<p>SDL可以处理.bmp格式图片，但如果想在项目中使用.png、.jpg等格式的图片，就需要引入SDL2_image库。</p>
@@ -146,6 +98,54 @@
 <p>方案来源于网络，地址忘记存了<br>在Product &gt; Scheme &gt; Edit Scheme中，选择Run &gt; Options<br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/image_03.png"><br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/image_04.png"><br>检查Working Directory，Use custom working directory，选择项目所在的文件夹，就可以在代码中使用相对路径加载本地图片。</p>
 </blockquote>
 <h2 id="老规矩的碎碎念"><a href="#老规矩的碎碎念" class="headerlink" title="老规矩的碎碎念"></a>老规矩的碎碎念</h2><p>image老打成iamge，也不知道为什么，被自己气死。</p>
+]]></content>
+      <categories>
+        <category>基于SDL的游戏开发学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Xcode</tag>
+        <tag>SDL</tag>
+        <tag>MacOS</tag>
+        <tag>M1</tag>
+        <tag>游戏开发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DevLog001-Xcode使用SDL2安装配置(M1)</title>
+    <url>/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/</url>
+    <content><![CDATA[<blockquote>
+<p>我的配置过程主要参考了<a href="https://www.youtube.com/watch?v=JbsmRKi18SI">这个视频</a>(YouTube)，这个视频帮我解决了很多问题，感谢</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h2><p>我的设备是MacBook Air(M1)，最新版(截至本文编辑)Xcode。<br>由于这是我的第一台使用macOS的电脑，对<strong>签名</strong>等概念并不熟悉，属实浪费了很多时间。<br>根据我安装配置的情况来看，M1对于SDL2框架的使用并无影响，在正确配置后，如果出现窗口没有出现等情况，多半是代码上的错误(说的就是我自己👉🏼🤡)。</p>
+<h2 id="下载和安装"><a href="#下载和安装" class="headerlink" title="下载和安装"></a>下载和安装</h2><p>从<a href="http://www.libsdl.org/download-2.0.php">SDL官网</a>下载对应系统的<strong>Development Libraries</strong>，如下图所示。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_downloadItem.png"></p>
+<p>双击打开下载的dmg文件，将SDL2.framework文件夹拖入Frameworks文件夹里。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_Item.png"><br>        Frameworks文件夹可以通过访达前往文件夹，<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_finder.png"><br>        输入如下:<br>        <code>/Library/Frameworks</code><br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_finder2.png"><br>        就OK了。</p>
+<h2 id="Xcode配置"><a href="#Xcode配置" class="headerlink" title="Xcode配置"></a>Xcode配置</h2><h3 id="步骤一"><a href="#步骤一" class="headerlink" title="步骤一"></a>步骤一</h3><p>新建一个项目，选择Command Line Tool，语言选择C++。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_xcode1.png"><br>        配置项目，添加SDL2.framework。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_xcode2.png"><br>        选择Add Other，Add file，从硬盘/Library/Frameworks可以很容易地找到SDL2.framework文件夹。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_xcode3.png"></p>
+<h3 id="步骤二"><a href="#步骤二" class="headerlink" title="步骤二"></a>步骤二</h3><p>确保框架Embed&amp;Sign，如果不是，将其置为Embed&amp;Sign。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_xcode4.png"></p>
+<h3 id="步骤三"><a href="#步骤三" class="headerlink" title="步骤三"></a>步骤三</h3><blockquote>
+<p>4.15更新: 这一步可以不用看，如果遇到codesign的问题看<a href="https://fayeke.github.io/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/">最终解决方案</a><br>如图。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_xcode6.png"><br>注意，这个方法来源于我开头提到的视频，我对这个做法的原理暂时还不太清楚。</p>
+</blockquote>
+<h2 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;SDL2/SDL.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sdlResult=<span class="built_in">SDL_Init</span>(SDL_INIT_VIDEO);</span><br><span class="line">    <span class="keyword">if</span>(sdlResult!=<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">SDL_Log</span>(<span class="string">&quot;Unable to initialize SDL: %s&quot;</span>,<span class="built_in">SDL_GetError</span>());</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//初始化窗口</span></span><br><span class="line">        SDL_Window* mWindow = <span class="built_in">SDL_CreateWindow</span>(<span class="string">&quot;Game with SDL2&quot;</span>,<span class="comment">// window title</span></span><br><span class="line">                             SDL_WINDOWPOS_UNDEFINED,           <span class="comment">// initial x position</span></span><br><span class="line">                             SDL_WINDOWPOS_UNDEFINED,           <span class="comment">// initial y position</span></span><br><span class="line">                             <span class="number">640</span>,                               <span class="comment">// width, in pixels</span></span><br><span class="line">                             <span class="number">480</span>,                               <span class="comment">// height, in pixels</span></span><br><span class="line">                             SDL_WINDOW_OPENGL                  <span class="comment">// flags - see below</span></span><br><span class="line">    );</span><br><span class="line">    <span class="keyword">if</span>(!mWindow)&#123;</span><br><span class="line">        <span class="built_in">SDL_Log</span>(<span class="string">&quot;Failed to create window: %s&quot;</span>, <span class="built_in">SDL_GetError</span>());</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">bool</span> mIsRunning = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">while</span>(mIsRunning)&#123;</span><br><span class="line">        SDL_Event event;</span><br><span class="line">        <span class="keyword">while</span>(<span class="built_in">SDL_PollEvent</span>(&amp;event))&#123;</span><br><span class="line">            <span class="built_in"><span class="keyword">switch</span></span> (event.type) &#123;</span><br><span class="line">                <span class="keyword">case</span> SDL_QUIT:</span><br><span class="line">                    mIsRunning = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                    </span><br><span class="line">                <span class="keyword">default</span>:</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">SDL_DestroyWindow</span>(mWindow);</span><br><span class="line">    <span class="built_in">SDL_Quit</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果成功运行，就会出现一个名为Game with SDL2的窗口。它持续保持打开状态，直到你关掉它。</p>
+<p><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_result.png"></p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><blockquote>
+<p>👩🏻‍💻如果以下方法无法解决问题，或者是其他错误，就触及到我的知识盲区了。</p>
+</blockquote>
+<h3 id="build-failed"><a href="#build-failed" class="headerlink" title="build failed"></a>build failed</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;SDL2&#x2F;SDL.h&#39; file not found</span><br></pre></td></tr></table></figure>
+<p>转<strong>Xcode配置.步骤一</strong><br>或 Product -&gt; Clean build folder</p>
+<blockquote>
+<p>有时会在运行成功生成窗口后，出现这个错误，我并不清楚原因所在，不过程序仍然可以正常运行……希望有知道的朋友可以在评论区交流一下。<br><img src="/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/SDL_strangeError.png"></p>
+</blockquote>
+<h3 id="build-successed"><a href="#build-successed" class="headerlink" title="build successed"></a>build successed</h3><blockquote>
+<p>4.15更新: 下述都是codesign的问题，看<a href="https://fayeke.github.io/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/">最终解决方案</a></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dyld: Library not loaded: @rpath&#x2F;SDL2.framework&#x2F;Versions&#x2F;A&#x2F;SDL2</span><br><span class="line">  Referenced from: &#x2F;Users&#x2F;fayeke&#x2F;Library&#x2F;Developer&#x2F;Xcode&#x2F;DerivedData&#x2F;Test-exeilrliaawdqhdhujvjtueqejrg&#x2F;Build&#x2F;Products&#x2F;Debug&#x2F;Test</span><br><span class="line">  Reason: no suitable image found.  Did find:</span><br><span class="line">	&#x2F;Library&#x2F;Frameworks&#x2F;SDL2.framework&#x2F;Versions&#x2F;A&#x2F;SDL2: code signature in (&#x2F;Library&#x2F;Frameworks&#x2F;SDL2.framework&#x2F;Versions&#x2F;A&#x2F;SDL2) not valid for use in process using Library Validation: mapping process and mapped file (non-platform) have different Team IDs</span><br></pre></td></tr></table></figure>
+<p>转<strong>Xcode配置.步骤二</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dyld: Library not loaded: @rpath&#x2F;hidapi.framework&#x2F;Versions&#x2F;A&#x2F;hidapi</span><br><span class="line">  Referenced from: &#x2F;Users&#x2F;fayeke&#x2F;Library&#x2F;Developer&#x2F;Xcode&#x2F;DerivedData&#x2F;Test-exeilrliaawdqhdhujvjtueqejrg&#x2F;Build&#x2F;Products&#x2F;Debug&#x2F;SDL2.framework&#x2F;Versions&#x2F;A&#x2F;SDL2</span><br><span class="line">  Reason: no suitable image found.  Did find:</span><br><span class="line">	&#x2F;Users&#x2F;fayeke&#x2F;Library&#x2F;Developer&#x2F;Xcode&#x2F;DerivedData&#x2F;Test-exeilrliaawdqhdhujvjtueqejrg&#x2F;Build&#x2F;Products&#x2F;Debug&#x2F;SDL2.framework&#x2F;Versions&#x2F;A&#x2F;Frameworks&#x2F;hidapi.framework&#x2F;Versions&#x2F;A&#x2F;hidapi: code signature in (&#x2F;Users&#x2F;fayeke&#x2F;Library&#x2F;Developer&#x2F;Xcode&#x2F;DerivedData&#x2F;Test-exeilrliaawdqhdhujvjtueqejrg&#x2F;Build&#x2F;Products&#x2F;Debug&#x2F;SDL2.framework&#x2F;Versions&#x2F;A&#x2F;Frameworks&#x2F;hidapi.framework&#x2F;Versions&#x2F;A&#x2F;hidapi) not valid for use in process using Library Validation: mapping process and mapped file (non-platform) have different Team IDs</span><br></pre></td></tr></table></figure>
+<p>转<strong>Xcode配置.步骤三</strong></p>
 ]]></content>
       <categories>
         <category>基于SDL的游戏开发学习</category>
