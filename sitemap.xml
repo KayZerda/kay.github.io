@@ -102,13 +102,6 @@
   </url>
   
   <url>
-    <loc>https://fayeke.github.io/tags/%E5%85%B6%E4%BB%96/</loc>
-    <lastmod>2021-08-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://fayeke.github.io/tags/Unity/</loc>
     <lastmod>2021-08-06</lastmod>
     <changefreq>daily</changefreq>
@@ -117,6 +110,13 @@
   
   <url>
     <loc>https://fayeke.github.io/tags/C/</loc>
+    <lastmod>2021-08-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://fayeke.github.io/tags/%E5%85%B6%E4%BB%96/</loc>
     <lastmod>2021-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -132,14 +132,14 @@
   </url>
   
   <url>
-    <loc>https://fayeke.github.io/categories/%E5%B0%8F%E8%AE%B0/</loc>
+    <loc>https://fayeke.github.io/categories/Unity%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2021-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://fayeke.github.io/categories/Unity%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://fayeke.github.io/categories/%E5%B0%8F%E8%AE%B0/</loc>
     <lastmod>2021-08-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
