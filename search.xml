@@ -1,6 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Unity学习001-简单的电梯实现</title>
+    <url>/2021/08/05/Unity%E5%AD%A6%E4%B9%A0001-%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%B5%E6%A2%AF%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<p>计划学习实现一个电梯系统，先从简单模仿上下移动入手，写篇博客记录一下思路和过程。</p>
+<span id="more"></span>
+
+<h2 id="构思"><a href="#构思" class="headerlink" title="构思"></a>构思</h2><p>想要做的游戏类型是未来废土，地下庇护所的设计使电梯成为了必要元素之一。初步计划是先实现功能雏形，再逐步完善。最近人比较浮躁，不太适合继续从零开始做，还是掏出了学得一知半解的Unity。</p>
+<p><img src="/2021/08/05/Unity%E5%AD%A6%E4%B9%A0001-%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%B5%E6%A2%AF%E5%AE%9E%E7%8E%B0/sample.png"></p>
+<p>参考《空洞骑士》里最简单的电梯机制：</p>
+<ol>
+<li>击打开关，电梯移动到所在层</li>
+<li>角色走上去后（碰撞）电梯上行</li>
+<li>电梯到达最上层后停止，等待下一次碰撞电梯下行</li>
+</ol>
+<p>机制扩展：</p>
+<ul>
+<li>乘坐途中改变电梯方向</li>
+<li>电梯面板和目的楼层选择</li>
+</ul>
+<h2 id="初步实现"><a href="#初步实现" class="headerlink" title="初步实现"></a>初步实现</h2><blockquote>
+<p>使用了免费资产MetroidvaniaController，人物动作和功能实现十分完整，还包含怪、AI怪等，非常推荐做2D平台游戏的朋友下载。<del>等我有空研读一下作者的代码，写篇文章记录一下。</del></p>
+</blockquote>
+<p>创建一个GameObject，添加碰撞组件Box Collider 2D和脚本组件。</p>
+<p><img src="/2021/08/05/Unity%E5%AD%A6%E4%B9%A0001-%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%B5%E6%A2%AF%E5%AE%9E%E7%8E%B0/newGameObject.png"><br><img src="/2021/08/05/Unity%E5%AD%A6%E4%B9%A0001-%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%B5%E6%A2%AF%E5%AE%9E%E7%8E%B0/newComponent.png"></p>
+<p>碰撞的三个状态：碰撞发生，碰撞持续，碰撞结束，分别对应三个函数：OnCollisionEnter2D(Collision2D)，OnCollisionStay2D(Collision2D)，OnCollisionExit2D(Collision2D)。这里我用检测碰撞发生来启动电梯。</p>
+<p>本文创建时脚本代码如下：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Lift</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> speed = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> moveTime = <span class="number">6</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">float</span> timer = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">bool</span> isON = <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">// Start is called before the first frame update</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Update is called once per frame</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span>(timer &gt; moveTime)</span><br><span class="line">        &#123;</span><br><span class="line">            isON = <span class="literal">false</span>;</span><br><span class="line">            speed *= <span class="number">-1</span>;</span><br><span class="line">            timer = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(isON)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.Translate(<span class="keyword">new</span> Vector3(<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>) * speed * Time.deltaTime);</span><br><span class="line">            timer += Time.deltaTime;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnCollisionEnter2D</span>(<span class="params">Collision2D col</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span>(col.gameObject.tag == <span class="string">&quot;Player&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            isON = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>到此基本实现了基础的2、3机制，然而以上脚本存在两个问题：</p>
+<ol>
+<li>电梯的停止位置是由运动时长确定的，地图搭建时需要按照比例匹配，不利于不同层高的情况</li>
+<li>由于人物本身绑定了刚体组件，当电梯下行时，人物由于惯性不断与电梯发生和结束碰撞，导致电梯下行停止后立刻上行</li>
+</ol>
+<h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><blockquote>
+<p>8.13更新。参考<a href="https://www.bilibili.com/video/BV1Wi4y1t7tU?from=search&seid=2622228834156908895">秦无邪老师的视频和代码</a>对电梯脚本代码进行了改进。</p>
+</blockquote>
+<ul>
+<li>使用MoveTowards()函数，利用数组存储每层楼的位置</li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">transform.position = Vector2.MoveTowards(transform.position, movePos[floor].position, speed * Time.deltaTime);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将电梯Object设置为人物Object的parent，使人物位置随电梯位置一起变化</li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OnCollisionEnter2D</span>(<span class="params">Collision2D col</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(col.gameObject.tag == <span class="string">&quot;Player&quot;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        turnOn = <span class="literal">true</span>;</span><br><span class="line">        col.gameObject.transform.parent = gameObject.transform;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OnCollisionExit2D</span>(<span class="params">Collision2D col</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(col.gameObject.tag == <span class="string">&quot;Player&quot;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        col.gameObject.transform.parent = playerDefTransform;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>到此简单的电梯雏形就完成了，接下来的开发和改进会另开新篇记录。</p>
+]]></content>
+      <categories>
+        <category>Unity学习</category>
+      </categories>
+      <tags>
+        <tag>游戏开发</tag>
+        <tag>Unity</tag>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小记-用于个人备份的网页链接合集</title>
+    <url>/2021/07/05/%E5%B0%8F%E8%AE%B0-%E7%94%A8%E4%BA%8E%E4%B8%AA%E4%BA%BA%E5%A4%87%E4%BB%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E9%93%BE%E6%8E%A5%E5%90%88%E9%9B%86/</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">包含：各种问题的解决方案，优秀博客博文等。</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2>]]></content>
+      <categories>
+        <category>小记</category>
+      </categories>
+      <tags>
+        <tag>其他</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DevLog003-Mac动态库签名问题：最好的解决方式就是手动解决</title>
+    <url>/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/</url>
+    <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dyld: Library not loaded: ...</span><br><span class="line">  Referenced from: ...</span><br><span class="line">  Reason: no suitable image found.  Did find:</span><br><span class="line">	...: code signature in (...) not valid for use in process using Library Validation: mapping process and mapped file (non-platform) have different Team IDs</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><h3 id="手动签名"><a href="#手动签名" class="headerlink" title="手动签名"></a>手动签名</h3><p>首先确认Code Signing Identity的值，保持手动签名时名称一致，例如这里时Apple Development。<br><img src="/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/solution.png"><br>打开终端，定位到Frameworks文件夹，打开需要签名的库，例如SDL2，使用:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">codesign -f -s &quot;Apple Development&quot; SDL2 </span><br></pre></td></tr></table></figure>
+<p>对SDL2进行签名。<br>其中 -f 代表强制重新签名。<br>用相同的方式对SDL2中的Frameworks进行签名。</p>
+]]></content>
+      <categories>
+        <category>基于SDL的游戏开发学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Xcode</tag>
+        <tag>SDL</tag>
+        <tag>MacOS</tag>
+        <tag>M1</tag>
+        <tag>游戏开发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DevLog002-Xcode使用SDL2_image安装配置</title>
     <url>/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<p>SDL可以处理.bmp格式图片，但如果想在项目中使用.png、.jpg等格式的图片，就需要引入SDL2_image库。</p>
@@ -77,86 +170,6 @@
         <tag>MacOS</tag>
         <tag>M1</tag>
         <tag>游戏开发</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DevLog003-Mac动态库签名问题：最好的解决方式就是手动解决</title>
-    <url>/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/</url>
-    <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dyld: Library not loaded: ...</span><br><span class="line">  Referenced from: ...</span><br><span class="line">  Reason: no suitable image found.  Did find:</span><br><span class="line">	...: code signature in (...) not valid for use in process using Library Validation: mapping process and mapped file (non-platform) have different Team IDs</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-
-<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><h3 id="手动签名"><a href="#手动签名" class="headerlink" title="手动签名"></a>手动签名</h3><p>首先确认Code Signing Identity的值，保持手动签名时名称一致，例如这里时Apple Development。<br><img src="/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/solution.png"><br>打开终端，定位到Frameworks文件夹，打开需要签名的库，例如SDL2，使用:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">codesign -f -s &quot;Apple Development&quot; SDL2 </span><br></pre></td></tr></table></figure>
-<p>对SDL2进行签名。<br>其中 -f 代表强制重新签名。<br>用相同的方式对SDL2中的Frameworks进行签名。</p>
-]]></content>
-      <categories>
-        <category>基于SDL的游戏开发学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Xcode</tag>
-        <tag>SDL</tag>
-        <tag>MacOS</tag>
-        <tag>M1</tag>
-        <tag>游戏开发</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小记-用于个人备份的网页链接合集</title>
-    <url>/2021/07/05/%E5%B0%8F%E8%AE%B0-%E7%94%A8%E4%BA%8E%E4%B8%AA%E4%BA%BA%E5%A4%87%E4%BB%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E9%93%BE%E6%8E%A5%E5%90%88%E9%9B%86/</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">包含：各种问题的解决方案，优秀博客博文等。</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2>]]></content>
-      <categories>
-        <category>小记</category>
-      </categories>
-      <tags>
-        <tag>其他</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unity学习001-简单的电梯实现</title>
-    <url>/2021/08/05/Unity%E5%AD%A6%E4%B9%A0001-%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%B5%E6%A2%AF%E5%AE%9E%E7%8E%B0/</url>
-    <content><![CDATA[<p>计划学习实现一个电梯系统，先从简单模仿上下移动入手，写篇博客记录一下思路和过程。</p>
-<span id="more"></span>
-
-<h2 id="构思"><a href="#构思" class="headerlink" title="构思"></a>构思</h2><p>想要做的游戏类型是未来废土，地下庇护所的设计使电梯成为了必要元素之一。初步计划是先实现功能雏形，再逐步完善。最近人比较浮躁，不太适合继续从零开始做，还是掏出了学得一知半解的Unity。</p>
-<p><img src="/2021/08/05/Unity%E5%AD%A6%E4%B9%A0001-%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%B5%E6%A2%AF%E5%AE%9E%E7%8E%B0/sample.png"></p>
-<p>参考《空洞骑士》里最简单的电梯机制：</p>
-<ol>
-<li>击打开关，电梯移动到所在层</li>
-<li>角色走上去后（碰撞）电梯上行</li>
-<li>电梯到达最上层后停止，等待下一次碰撞电梯下行</li>
-</ol>
-<p>机制扩展：</p>
-<ul>
-<li>乘坐途中改变电梯方向</li>
-<li>电梯面板和目的楼层选择</li>
-</ul>
-<h2 id="初步实现"><a href="#初步实现" class="headerlink" title="初步实现"></a>初步实现</h2><blockquote>
-<p>使用了免费资产MetroidvaniaController，人物动作和功能实现十分完整，还包含怪、AI怪等，非常推荐做2D平台游戏的朋友下载。<del>等我有空研读一下作者的代码，写篇文章记录一下。</del></p>
-</blockquote>
-<p>创建一个GameObject，添加碰撞组件Box Collider 2D和脚本组件。</p>
-<p><img src="/2021/08/05/Unity%E5%AD%A6%E4%B9%A0001-%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%B5%E6%A2%AF%E5%AE%9E%E7%8E%B0/newGameObject.png"><br><img src="/2021/08/05/Unity%E5%AD%A6%E4%B9%A0001-%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%B5%E6%A2%AF%E5%AE%9E%E7%8E%B0/newComponent.png"></p>
-<p>碰撞的三个状态：碰撞发生，碰撞持续，碰撞结束，分别对应三个函数：OnCollisionEnter2D(Collision2D)，OnCollisionStay2D(Collision2D)，OnCollisionExit2D(Collision2D)。这里我用检测碰撞发生来启动电梯。</p>
-<p>本文创建时脚本代码如下：</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Lift</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> speed = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> moveTime = <span class="number">6</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">float</span> timer = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">bool</span> isON = <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">// Start is called before the first frame update</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Update is called once per frame</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span>(timer &gt; moveTime)</span><br><span class="line">        &#123;</span><br><span class="line">            isON = <span class="literal">false</span>;</span><br><span class="line">            speed *= <span class="number">-1</span>;</span><br><span class="line">            timer = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(isON)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.Translate(<span class="keyword">new</span> Vector3(<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>) * speed * Time.deltaTime);</span><br><span class="line">            timer += Time.deltaTime;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnCollisionEnter2D</span>(<span class="params">Collision2D col</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span>(col.gameObject.tag == <span class="string">&quot;Player&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            isON = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>到此基本实现了基础的2、3机制，然而以上脚本存在两个问题：</p>
-<ol>
-<li>电梯的停止位置是由运动时长确定的，地图搭建时需要按照比例匹配，不利于不同层高的情况</li>
-<li>由于人物本身绑定了刚体组件，当电梯下行时，人物由于惯性不断与电梯发生和结束碰撞，导致电梯下行停止后立刻上行</li>
-</ol>
-<h3 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h3><p>待续…</p>
-]]></content>
-      <categories>
-        <category>Unity学习</category>
-      </categories>
-      <tags>
-        <tag>游戏开发</tag>
-        <tag>Unity</tag>
-        <tag>C#</tag>
       </tags>
   </entry>
 </search>
