@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>DevLog002-Xcode使用SDL2_image安装配置</title>
+    <url>/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>SDL可以处理.bmp格式图片，但如果想在项目中使用.png、.jpg等格式的图片，就需要引入SDL2_image库。</p>
+<span id="more"></span>
+
+<h2 id="下载和安装"><a href="#下载和安装" class="headerlink" title="下载和安装"></a>下载和安装</h2><p>具体过程和<a href="https://fayeke.github.io/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/">SDL框架</a>的下载安装相同，从<a href="http://www.libsdl.org/projects/SDL_image/">这里</a>下载相应操作系统的Development Libraries。</p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="芯片架构问题"><a href="#芯片架构问题" class="headerlink" title="芯片架构问题"></a>芯片架构问题</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;yourProject.xcodeproj The linked and embedded framework &#39;SDL2_image.framework&#39; is missing one or more architectures required by this target: arm64.</span><br></pre></td></tr></table></figure>
+<p>兼容问题更改运行方式为Rosetta即可。<br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/image_01.png"><br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/image_02.png"></p>
+<h3 id="codesign问题"><a href="#codesign问题" class="headerlink" title="codesign问题"></a>codesign问题</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ctgmoccoynjrwpbprjqqektfmoac&#x2F;Build&#x2F;Products&#x2F;Debug&#x2F;yourProject.app&#x2F;Contents&#x2F;Frameworks&#x2F;SDL2_image.framework&#x2F;Versions&#x2F;A&#x2F;Frameworks&#x2F;webp.framework</span><br><span class="line">Command CodeSign failed with a nonzero exit code</span><br></pre></td></tr></table></figure>
+<p>最终我通过手动签名webp.framework和删除上一篇输入的Other code signing flags –deep解决了。罪魁祸首应该是–deep导致的，删除后SDL框架正常运行，SDL_image框架还没有使用，仅引用，程序正常运行。</p>
+<blockquote>
+<p>关于手动签名，我参考了stackoverflow的<a href="https://stackoverflow.com/questions/28665772/xcode-6-1-1-cannot-codesign-code-object-is-not-signed-at-all-with-only-1-fra">这个问题</a>下的回答。<br>4.15更新: 补充，上述手动签名方法中identify是默认的Sign to run locally，具体见[最终解决方案](&gt; 4.15更新: 下述都是codesign的问题，看<a href="https://fayeke.github.io/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/">最终解决方案</a>)</p>
+</blockquote>
+<h3 id="图片路径正确但无法加载图片"><a href="#图片路径正确但无法加载图片" class="headerlink" title="图片路径正确但无法加载图片"></a>图片路径正确但无法加载图片</h3><blockquote>
+<p>方案来源于网络，地址忘记存了<br>在Product &gt; Scheme &gt; Edit Scheme中，选择Run &gt; Options<br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/image_03.png"><br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/image_04.png"><br>检查Working Directory，Use custom working directory，选择项目所在的文件夹，就可以在代码中使用相对路径加载本地图片。</p>
+</blockquote>
+<h2 id="老规矩的碎碎念"><a href="#老规矩的碎碎念" class="headerlink" title="老规矩的碎碎念"></a>老规矩的碎碎念</h2><p>image老打成iamge，也不知道为什么，被自己气死。</p>
+]]></content>
+      <categories>
+        <category>基于SDL的游戏开发学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Xcode</tag>
+        <tag>SDL</tag>
+        <tag>MacOS</tag>
+        <tag>M1</tag>
+        <tag>游戏开发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DevLog003-Mac动态库签名问题：最好的解决方式就是手动解决</title>
+    <url>/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/</url>
+    <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dyld: Library not loaded: ...</span><br><span class="line">  Referenced from: ...</span><br><span class="line">  Reason: no suitable image found.  Did find:</span><br><span class="line">	...: code signature in (...) not valid for use in process using Library Validation: mapping process and mapped file (non-platform) have different Team IDs</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><h3 id="手动签名"><a href="#手动签名" class="headerlink" title="手动签名"></a>手动签名</h3><p>首先确认Code Signing Identity的值，保持手动签名时名称一致，例如这里时Apple Development。<br><img src="/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/solution.png"><br>打开终端，定位到Frameworks文件夹，打开需要签名的库，例如SDL2，使用:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">codesign -f -s &quot;Apple Development&quot; SDL2 </span><br></pre></td></tr></table></figure>
+<p>对SDL2进行签名。<br>其中 -f 代表强制重新签名。<br>用相同的方式对SDL2中的Frameworks进行签名。</p>
+]]></content>
+      <categories>
+        <category>基于SDL的游戏开发学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Xcode</tag>
+        <tag>SDL</tag>
+        <tag>MacOS</tag>
+        <tag>M1</tag>
+        <tag>游戏开发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Unity学习001-简单的电梯实现</title>
     <url>/2021/08/05/Unity%E5%AD%A6%E4%B9%A0001-%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%B5%E6%A2%AF%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<p>计划学习实现一个电梯系统，先从简单模仿上下移动入手，写篇博客记录一下思路和过程。</p>
@@ -69,59 +122,6 @@
       </categories>
       <tags>
         <tag>其他</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DevLog003-Mac动态库签名问题：最好的解决方式就是手动解决</title>
-    <url>/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/</url>
-    <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dyld: Library not loaded: ...</span><br><span class="line">  Referenced from: ...</span><br><span class="line">  Reason: no suitable image found.  Did find:</span><br><span class="line">	...: code signature in (...) not valid for use in process using Library Validation: mapping process and mapped file (non-platform) have different Team IDs</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-
-<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><h3 id="手动签名"><a href="#手动签名" class="headerlink" title="手动签名"></a>手动签名</h3><p>首先确认Code Signing Identity的值，保持手动签名时名称一致，例如这里时Apple Development。<br><img src="/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/solution.png"><br>打开终端，定位到Frameworks文件夹，打开需要签名的库，例如SDL2，使用:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">codesign -f -s &quot;Apple Development&quot; SDL2 </span><br></pre></td></tr></table></figure>
-<p>对SDL2进行签名。<br>其中 -f 代表强制重新签名。<br>用相同的方式对SDL2中的Frameworks进行签名。</p>
-]]></content>
-      <categories>
-        <category>基于SDL的游戏开发学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Xcode</tag>
-        <tag>SDL</tag>
-        <tag>MacOS</tag>
-        <tag>M1</tag>
-        <tag>游戏开发</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DevLog002-Xcode使用SDL2_image安装配置</title>
-    <url>/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>SDL可以处理.bmp格式图片，但如果想在项目中使用.png、.jpg等格式的图片，就需要引入SDL2_image库。</p>
-<span id="more"></span>
-
-<h2 id="下载和安装"><a href="#下载和安装" class="headerlink" title="下载和安装"></a>下载和安装</h2><p>具体过程和<a href="https://fayeke.github.io/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/">SDL框架</a>的下载安装相同，从<a href="http://www.libsdl.org/projects/SDL_image/">这里</a>下载相应操作系统的Development Libraries。</p>
-<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="芯片架构问题"><a href="#芯片架构问题" class="headerlink" title="芯片架构问题"></a>芯片架构问题</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;yourProject.xcodeproj The linked and embedded framework &#39;SDL2_image.framework&#39; is missing one or more architectures required by this target: arm64.</span><br></pre></td></tr></table></figure>
-<p>兼容问题更改运行方式为Rosetta即可。<br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/image_01.png"><br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/image_02.png"></p>
-<h3 id="codesign问题"><a href="#codesign问题" class="headerlink" title="codesign问题"></a>codesign问题</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ctgmoccoynjrwpbprjqqektfmoac&#x2F;Build&#x2F;Products&#x2F;Debug&#x2F;yourProject.app&#x2F;Contents&#x2F;Frameworks&#x2F;SDL2_image.framework&#x2F;Versions&#x2F;A&#x2F;Frameworks&#x2F;webp.framework</span><br><span class="line">Command CodeSign failed with a nonzero exit code</span><br></pre></td></tr></table></figure>
-<p>最终我通过手动签名webp.framework和删除上一篇输入的Other code signing flags –deep解决了。罪魁祸首应该是–deep导致的，删除后SDL框架正常运行，SDL_image框架还没有使用，仅引用，程序正常运行。</p>
-<blockquote>
-<p>关于手动签名，我参考了stackoverflow的<a href="https://stackoverflow.com/questions/28665772/xcode-6-1-1-cannot-codesign-code-object-is-not-signed-at-all-with-only-1-fra">这个问题</a>下的回答。<br>4.15更新: 补充，上述手动签名方法中identify是默认的Sign to run locally，具体见[最终解决方案](&gt; 4.15更新: 下述都是codesign的问题，看<a href="https://fayeke.github.io/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/">最终解决方案</a>)</p>
-</blockquote>
-<h3 id="图片路径正确但无法加载图片"><a href="#图片路径正确但无法加载图片" class="headerlink" title="图片路径正确但无法加载图片"></a>图片路径正确但无法加载图片</h3><blockquote>
-<p>方案来源于网络，地址忘记存了<br>在Product &gt; Scheme &gt; Edit Scheme中，选择Run &gt; Options<br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/image_03.png"><br><img src="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/image_04.png"><br>检查Working Directory，Use custom working directory，选择项目所在的文件夹，就可以在代码中使用相对路径加载本地图片。</p>
-</blockquote>
-<h2 id="老规矩的碎碎念"><a href="#老规矩的碎碎念" class="headerlink" title="老规矩的碎碎念"></a>老规矩的碎碎念</h2><p>image老打成iamge，也不知道为什么，被自己气死。</p>
-]]></content>
-      <categories>
-        <category>基于SDL的游戏开发学习</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>Xcode</tag>
-        <tag>SDL</tag>
-        <tag>MacOS</tag>
-        <tag>M1</tag>
-        <tag>游戏开发</tag>
       </tags>
   </entry>
   <entry>
