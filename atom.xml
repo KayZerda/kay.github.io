@@ -6,7 +6,7 @@
   <link href="https://fayeke.github.io/atom.xml" rel="self"/>
   
   <link href="https://fayeke.github.io/"/>
-  <updated>2021-08-13T05:39:52.950Z</updated>
+  <updated>2021-09-13T14:58:15.104Z</updated>
   <id>https://fayeke.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Unity学习002-根据Brackeys佬教程实现门的场景转换</title>
+    <link href="https://fayeke.github.io/2021/09/13/Unity%E5%AD%A6%E4%B9%A0002-%E6%A0%B9%E6%8D%AEBrackeys%E4%BD%AC%E6%95%99%E7%A8%8B%E5%AE%9E%E7%8E%B0%E9%97%A8%E7%9A%84%E5%9C%BA%E6%99%AF%E8%BD%AC%E6%8D%A2/"/>
+    <id>https://fayeke.github.io/2021/09/13/Unity%E5%AD%A6%E4%B9%A0002-%E6%A0%B9%E6%8D%AEBrackeys%E4%BD%AC%E6%95%99%E7%A8%8B%E5%AE%9E%E7%8E%B0%E9%97%A8%E7%9A%84%E5%9C%BA%E6%99%AF%E8%BD%AC%E6%8D%A2/</id>
+    <published>2021-09-13T14:43:00.000Z</published>
+    <updated>2021-09-13T14:58:15.104Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;纯日志，无教程&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Unity学习" scheme="https://fayeke.github.io/categories/Unity%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="Unity" scheme="https://fayeke.github.io/tags/Unity/"/>
+    
+    <category term="C#" scheme="https://fayeke.github.io/tags/C/"/>
+    
+    <category term="游戏开发" scheme="https://fayeke.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>Unity学习001-简单的电梯实现</title>
@@ -31,11 +54,11 @@
     <category term="Unity学习" scheme="https://fayeke.github.io/categories/Unity%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="游戏开发" scheme="https://fayeke.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
-    
     <category term="Unity" scheme="https://fayeke.github.io/tags/Unity/"/>
     
     <category term="C#" scheme="https://fayeke.github.io/tags/C/"/>
+    
+    <category term="游戏开发" scheme="https://fayeke.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -73,6 +96,8 @@
     <category term="基于SDL的游戏开发学习" scheme="https://fayeke.github.io/categories/%E5%9F%BA%E4%BA%8ESDL%E7%9A%84%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/"/>
     
     
+    <category term="游戏开发" scheme="https://fayeke.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+    
     <category term="C++" scheme="https://fayeke.github.io/tags/C/"/>
     
     <category term="Xcode" scheme="https://fayeke.github.io/tags/Xcode/"/>
@@ -82,8 +107,6 @@
     <category term="MacOS" scheme="https://fayeke.github.io/tags/MacOS/"/>
     
     <category term="M1" scheme="https://fayeke.github.io/tags/M1/"/>
-    
-    <category term="游戏开发" scheme="https://fayeke.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -102,6 +125,8 @@
     <category term="基于SDL的游戏开发学习" scheme="https://fayeke.github.io/categories/%E5%9F%BA%E4%BA%8ESDL%E7%9A%84%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/"/>
     
     
+    <category term="游戏开发" scheme="https://fayeke.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+    
     <category term="C++" scheme="https://fayeke.github.io/tags/C/"/>
     
     <category term="Xcode" scheme="https://fayeke.github.io/tags/Xcode/"/>
@@ -111,8 +136,6 @@
     <category term="MacOS" scheme="https://fayeke.github.io/tags/MacOS/"/>
     
     <category term="M1" scheme="https://fayeke.github.io/tags/M1/"/>
-    
-    <category term="游戏开发" scheme="https://fayeke.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -133,6 +156,8 @@
     <category term="基于SDL的游戏开发学习" scheme="https://fayeke.github.io/categories/%E5%9F%BA%E4%BA%8ESDL%E7%9A%84%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/"/>
     
     
+    <category term="游戏开发" scheme="https://fayeke.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+    
     <category term="C++" scheme="https://fayeke.github.io/tags/C/"/>
     
     <category term="Xcode" scheme="https://fayeke.github.io/tags/Xcode/"/>
@@ -142,8 +167,6 @@
     <category term="MacOS" scheme="https://fayeke.github.io/tags/MacOS/"/>
     
     <category term="M1" scheme="https://fayeke.github.io/tags/M1/"/>
-    
-    <category term="游戏开发" scheme="https://fayeke.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://fayeke.github.io/2021/09/13/Unity%E5%AD%A6%E4%B9%A0002-%E6%A0%B9%E6%8D%AEBrackeys%E4%BD%AC%E6%95%99%E7%A8%8B%E5%AE%9E%E7%8E%B0%E9%97%A8%E7%9A%84%E5%9C%BA%E6%99%AF%E8%BD%AC%E6%8D%A2/</loc>
+    
+    <lastmod>2021-09-13</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://fayeke.github.io/2021/08/05/Unity%E5%AD%A6%E4%B9%A0001-%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%B5%E6%A2%AF%E5%AE%9E%E7%8E%B0/</loc>
     
     <lastmod>2021-08-13</lastmod>
@@ -53,71 +60,71 @@
 
   <url>
     <loc>https://fayeke.github.io/</loc>
-    <lastmod>2021-08-14</lastmod>
+    <lastmod>2021-09-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
+    <loc>https://fayeke.github.io/tags/Unity/</loc>
+    <lastmod>2021-09-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://fayeke.github.io/tags/C/</loc>
-    <lastmod>2021-08-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://fayeke.github.io/tags/Xcode/</loc>
-    <lastmod>2021-08-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://fayeke.github.io/tags/SDL/</loc>
-    <lastmod>2021-08-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://fayeke.github.io/tags/MacOS/</loc>
-    <lastmod>2021-08-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://fayeke.github.io/tags/M1/</loc>
-    <lastmod>2021-08-14</lastmod>
+    <lastmod>2021-09-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://fayeke.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2021-08-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://fayeke.github.io/tags/Unity/</loc>
-    <lastmod>2021-08-14</lastmod>
+    <lastmod>2021-09-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://fayeke.github.io/tags/C/</loc>
-    <lastmod>2021-08-14</lastmod>
+    <lastmod>2021-09-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://fayeke.github.io/tags/Xcode/</loc>
+    <lastmod>2021-09-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://fayeke.github.io/tags/SDL/</loc>
+    <lastmod>2021-09-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://fayeke.github.io/tags/MacOS/</loc>
+    <lastmod>2021-09-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://fayeke.github.io/tags/M1/</loc>
+    <lastmod>2021-09-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://fayeke.github.io/tags/%E5%85%B6%E4%BB%96/</loc>
-    <lastmod>2021-08-14</lastmod>
+    <lastmod>2021-09-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -125,22 +132,22 @@
 
   
   <url>
-    <loc>https://fayeke.github.io/categories/%E5%9F%BA%E4%BA%8ESDL%E7%9A%84%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2021-08-14</lastmod>
+    <loc>https://fayeke.github.io/categories/Unity%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2021-09-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://fayeke.github.io/categories/Unity%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2021-08-14</lastmod>
+    <loc>https://fayeke.github.io/categories/%E5%9F%BA%E4%BA%8ESDL%E7%9A%84%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2021-09-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://fayeke.github.io/categories/%E5%B0%8F%E8%AE%B0/</loc>
-    <lastmod>2021-08-14</lastmod>
+    <lastmod>2021-09-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
