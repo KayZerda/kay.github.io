@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Unity学习002-根据Brackeys佬教程实现门的场景转换</title>
+    <url>/2021/09/13/Unity%E5%AD%A6%E4%B9%A0002-%E6%A0%B9%E6%8D%AEBrackeys%E4%BD%AC%E6%95%99%E7%A8%8B%E5%AE%9E%E7%8E%B0%E9%97%A8%E7%9A%84%E5%9C%BA%E6%99%AF%E8%BD%AC%E6%8D%A2/</url>
+    <content><![CDATA[<p>纯日志，无教程</p>
+<span id="more"></span>
+
+<p>参考视频：<a href="https://www.youtube.com/watch?v=CE9VOZivb3I">How to make AWESOME Scene Transitions in Unity!</a></p>
+<h2 id="场景转换"><a href="#场景转换" class="headerlink" title="场景转换"></a>场景转换</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">LoadNextScene</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    StartCoroutine(LoadScene(sceneIndex));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">IEnumerator <span class="title">LoadScene</span>(<span class="params"><span class="built_in">int</span> sceneIndex</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//Play animation</span></span><br><span class="line">    transition.SetTrigger(<span class="string">&quot;Start&quot;</span>);</span><br><span class="line">    <span class="comment">//Wait animation</span></span><br><span class="line">    <span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params">transitionTime</span>)</span>;</span><br><span class="line">    <span class="comment">//Load</span></span><br><span class="line">    SceneManager.LoadSceneAsync(sceneIndex);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="门"><a href="#门" class="headerlink" title="门"></a>门</h2><p>门分为出去和进入两种，前者不需要进行输入，只进行接触判断；后者需要在接触判断时获得对应输入。</p>
+]]></content>
+      <categories>
+        <category>Unity学习</category>
+      </categories>
+      <tags>
+        <tag>游戏开发</tag>
+        <tag>Unity</tag>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Unity学习001-简单的电梯实现</title>
     <url>/2021/08/05/Unity%E5%AD%A6%E4%B9%A0001-%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%B5%E6%A2%AF%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<p>计划学习实现一个电梯系统，先从简单模仿上下移动入手，写篇博客记录一下思路和过程。</p>
@@ -52,8 +72,44 @@
         <category>Unity学习</category>
       </categories>
       <tags>
+        <tag>游戏开发</tag>
         <tag>Unity</tag>
         <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小记-用于个人备份的网页链接合集</title>
+    <url>/2021/07/05/%E5%B0%8F%E8%AE%B0-%E7%94%A8%E4%BA%8E%E4%B8%AA%E4%BA%BA%E5%A4%87%E4%BB%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E9%93%BE%E6%8E%A5%E5%90%88%E9%9B%86/</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">包含：各种问题的解决方案，优秀博客博文等。</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2>]]></content>
+      <categories>
+        <category>小记</category>
+      </categories>
+      <tags>
+        <tag>其他</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DevLog003-Mac动态库签名问题：最好的解决方式就是手动解决</title>
+    <url>/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/</url>
+    <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dyld: Library not loaded: ...</span><br><span class="line">  Referenced from: ...</span><br><span class="line">  Reason: no suitable image found.  Did find:</span><br><span class="line">	...: code signature in (...) not valid for use in process using Library Validation: mapping process and mapped file (non-platform) have different Team IDs</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><h3 id="手动签名"><a href="#手动签名" class="headerlink" title="手动签名"></a>手动签名</h3><p>首先确认Code Signing Identity的值，保持手动签名时名称一致，例如这里时Apple Development。<br><img src="/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/solution.png"><br>打开终端，定位到Frameworks文件夹，打开需要签名的库，例如SDL2，使用:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">codesign -f -s &quot;Apple Development&quot; SDL2 </span><br></pre></td></tr></table></figure>
+<p>对SDL2进行签名。<br>其中 -f 代表强制重新签名。<br>用相同的方式对SDL2中的Frameworks进行签名。</p>
+]]></content>
+      <categories>
+        <category>基于SDL的游戏开发学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Xcode</tag>
+        <tag>SDL</tag>
+        <tag>MacOS</tag>
+        <tag>M1</tag>
         <tag>游戏开发</tag>
       </tags>
   </entry>
@@ -80,34 +136,12 @@
         <category>基于SDL的游戏开发学习</category>
       </categories>
       <tags>
-        <tag>游戏开发</tag>
         <tag>C++</tag>
         <tag>Xcode</tag>
         <tag>SDL</tag>
         <tag>MacOS</tag>
         <tag>M1</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DevLog003-Mac动态库签名问题：最好的解决方式就是手动解决</title>
-    <url>/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/</url>
-    <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dyld: Library not loaded: ...</span><br><span class="line">  Referenced from: ...</span><br><span class="line">  Reason: no suitable image found.  Did find:</span><br><span class="line">	...: code signature in (...) not valid for use in process using Library Validation: mapping process and mapped file (non-platform) have different Team IDs</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-
-<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><h3 id="手动签名"><a href="#手动签名" class="headerlink" title="手动签名"></a>手动签名</h3><p>首先确认Code Signing Identity的值，保持手动签名时名称一致，例如这里时Apple Development。<br><img src="/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/solution.png"><br>打开终端，定位到Frameworks文件夹，打开需要签名的库，例如SDL2，使用:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">codesign -f -s &quot;Apple Development&quot; SDL2 </span><br></pre></td></tr></table></figure>
-<p>对SDL2进行签名。<br>其中 -f 代表强制重新签名。<br>用相同的方式对SDL2中的Frameworks进行签名。</p>
-]]></content>
-      <categories>
-        <category>基于SDL的游戏开发学习</category>
-      </categories>
-      <tags>
         <tag>游戏开发</tag>
-        <tag>C++</tag>
-        <tag>Xcode</tag>
-        <tag>SDL</tag>
-        <tag>MacOS</tag>
-        <tag>M1</tag>
       </tags>
   </entry>
   <entry>
@@ -150,46 +184,12 @@
         <category>基于SDL的游戏开发学习</category>
       </categories>
       <tags>
-        <tag>游戏开发</tag>
         <tag>C++</tag>
         <tag>Xcode</tag>
         <tag>SDL</tag>
         <tag>MacOS</tag>
         <tag>M1</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unity学习002-根据Brackeys佬教程实现门的场景转换</title>
-    <url>/2021/09/13/Unity%E5%AD%A6%E4%B9%A0002-%E6%A0%B9%E6%8D%AEBrackeys%E4%BD%AC%E6%95%99%E7%A8%8B%E5%AE%9E%E7%8E%B0%E9%97%A8%E7%9A%84%E5%9C%BA%E6%99%AF%E8%BD%AC%E6%8D%A2/</url>
-    <content><![CDATA[<p>纯日志，无教程</p>
-<span id="more"></span>
-
-<p>参考视频：<a href="https://www.youtube.com/watch?v=CE9VOZivb3I">How to make AWESOME Scene Transitions in Unity!</a></p>
-<h2 id="场景转换"><a href="#场景转换" class="headerlink" title="场景转换"></a>场景转换</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">LoadNextScene</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    StartCoroutine(LoadScene(sceneIndex));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">IEnumerator <span class="title">LoadScene</span>(<span class="params"><span class="built_in">int</span> sceneIndex</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//Play animation</span></span><br><span class="line">    transition.SetTrigger(<span class="string">&quot;Start&quot;</span>);</span><br><span class="line">    <span class="comment">//Wait animation</span></span><br><span class="line">    <span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params">transitionTime</span>)</span>;</span><br><span class="line">    <span class="comment">//Load</span></span><br><span class="line">    SceneManager.LoadSceneAsync(sceneIndex);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="门"><a href="#门" class="headerlink" title="门"></a>门</h2><p>门分为出去和进入两种，前者不需要进行输入，只进行接触判断；后者需要在接触判断时获得对应输入。</p>
-]]></content>
-      <categories>
-        <category>Unity学习</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
-        <tag>C#</tag>
         <tag>游戏开发</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小记-用于个人备份的网页链接合集</title>
-    <url>/2021/07/05/%E5%B0%8F%E8%AE%B0-%E7%94%A8%E4%BA%8E%E4%B8%AA%E4%BA%BA%E5%A4%87%E4%BB%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E9%93%BE%E6%8E%A5%E5%90%88%E9%9B%86/</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">包含：各种问题的解决方案，优秀博客博文等。</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2>]]></content>
-      <categories>
-        <category>小记</category>
-      </categories>
-      <tags>
-        <tag>其他</tag>
       </tags>
   </entry>
 </search>
