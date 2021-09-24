@@ -2356,9 +2356,6 @@ pre .javascript .function {
 .navbar .nav.nav-main .nav-item:nth-child(3) .nav-item-link::before {
   content: '\f18c';
 }
-.navbar .nav.nav-main .nav-item:nth-child(4) .nav-item-link::before {
-  content: '\f153';
-}
 .navbar-bottom {
   position: absolute;
   bottom: 0;
