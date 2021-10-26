@@ -6,7 +6,7 @@
   <link href="https://fayeke.github.io/atom.xml" rel="self"/>
   
   <link href="https://fayeke.github.io/"/>
-  <updated>2021-09-13T14:58:15.104Z</updated>
+  <updated>2021-10-26T02:20:11.899Z</updated>
   <id>https://fayeke.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小记-一点反思</title>
+    <link href="https://fayeke.github.io/2021/10/26/%E5%B0%8F%E8%AE%B0-%E4%B8%80%E7%82%B9%E5%8F%8D%E6%80%9D/"/>
+    <id>https://fayeke.github.io/2021/10/26/%E5%B0%8F%E8%AE%B0-%E4%B8%80%E7%82%B9%E5%8F%8D%E6%80%9D/</id>
+    <published>2021-10-26T01:58:00.000Z</published>
+    <updated>2021-10-26T02:20:11.899Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;从上上周开始，我试图为自己的废土游戏添砖加瓦，在设计上，游戏的主题、目标和机制逐渐清晰，然而在开发上我似乎什么都没能完成。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="小记" scheme="https://fayeke.github.io/categories/%E5%B0%8F%E8%AE%B0/"/>
+    
+    
+    <category term="游戏开发" scheme="https://fayeke.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="其他" scheme="https://fayeke.github.io/tags/%E5%85%B6%E4%BB%96/"/>
+    
+  </entry>
   
   <entry>
     <title>Unity学习002-根据Brackeys佬教程实现门的场景转换</title>

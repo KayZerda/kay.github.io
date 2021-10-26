@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    DevLog003-Mac动态库签名问题：最好的解决方式就是手动解决 |
+    小记-一点反思 |
     
     过敏的太空小屋</title>
   
@@ -33,7 +33,7 @@
 <body>
   <main class="content">
     <section class="outer">
-  <article id="post-DevLog003-Mac动态库签名问题：最好的解决方式就是手动解决" class="article article-type-post" itemscope
+  <article id="post-小记-一点反思" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -42,7 +42,7 @@
       
 
 <h1 class="article-title" itemprop="name">
-  DevLog003-Mac动态库签名问题：最好的解决方式就是手动解决
+  小记-一点反思
 </h1>
 
 
@@ -52,12 +52,12 @@
 
     
     <div class="article-meta">
-      <a href="/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/" class="article-date">
-  <time datetime="2021-04-15T11:20:00.000Z" itemprop="datePublished">2021-04-15</time>
+      <a href="/2021/10/26/%E5%B0%8F%E8%AE%B0-%E4%B8%80%E7%82%B9%E5%8F%8D%E6%80%9D/" class="article-date">
+  <time datetime="2021-10-26T01:58:00.000Z" itemprop="datePublished">2021-10-26</time>
 </a>
       
 <div class="article-category">
-  <a class="article-category-link" href="/categories/%E5%9F%BA%E4%BA%8ESDL%E7%9A%84%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/">基于SDL的游戏开发学习</a>
+  <a class="article-category-link" href="/categories/%E5%B0%8F%E8%AE%B0/">小记</a>
 </div>
 
     </div>
@@ -65,29 +65,29 @@
 
     
     
-<div class="tocbot"></div>
-
     
 
     <div class="article-entry" itemprop="articleBody">
       
       
       
-      <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dyld: Library not loaded: ...</span><br><span class="line">  Referenced from: ...</span><br><span class="line">  Reason: no suitable image found.  Did find:</span><br><span class="line">	...: code signature in (...) not valid for use in process using Library Validation: mapping process and mapped file (non-platform) have different Team IDs</span><br></pre></td></tr></table></figure>
+      <p>从上上周开始，我试图为自己的废土游戏添砖加瓦，在设计上，游戏的主题、目标和机制逐渐清晰，然而在开发上我似乎什么都没能完成。</p>
 <span id="more"></span>
 
-<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><h3 id="手动签名"><a href="#手动签名" class="headerlink" title="手动签名"></a>手动签名</h3><p>首先确认Code Signing Identity的值，保持手动签名时名称一致，例如这里时Apple Development。<br><img src="/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/solution.png"><br>打开终端，定位到Frameworks文件夹，打开需要签名的库，例如SDL2，使用:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">codesign -f -s &quot;Apple Development&quot; SDL2 </span><br></pre></td></tr></table></figure>
-<p>对SDL2进行签名。<br>其中 -f 代表强制重新签名。<br>用相同的方式对SDL2中的Frameworks进行签名。</p>
+<p>从结果上看，我没有实现一个最小的完整游戏原型。<br>大部分时间里，我都在纠结完善一些细微的地方：制作资产动画、完善冲刺效果（并没有完成）、添加不重要的NPC对象。我早期的模仿教程所写的代码很快不能适应游戏的扩展，被我认为是需要被抛弃或重构的，于是我又从拘泥资产转变为拘泥代码，然后一无所获。</p>
+<p>基本上，我把<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ZMbIvmv25u0">The mistake every new game developer makes</a>里所提到的问题都犯了一遍，除了我还没着手的故事剧本。在看了视频后我才意识到问题，在那之前，我试图通过购买和使用Corgi Engine来规范和加速开发。</p>
+<p>幸运的是，我在开发过程中清晰了游戏的边界，不至于让之后的开发像之前一样无目的，仅仅是堆砌资产（另一方面，Unity偏向于资产导向的开发教程也造成了我的思维误区）。</p>
+<p>拘泥细节更像是一种<strong>糟糕</strong>的生活习惯，在短期内完成或完善一个微小细节可以获得很快的多巴胺响应，然后在长期上毫无意义。从开发周期看，我现在所要做的是一个可玩的、最终会被抛弃的游戏原型，并在制作原型的过程中积累经验和资产（而前者显然比后者更重要），因此我之前的工作都是白费功夫（另一种经验积累）。</p>
+<p>希望GMTK的新系列可以更新快一些呜呜。对于我来说，<strong>经历分享</strong>要比教程有用的多。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://fayeke.github.io/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/" data-id="ckv7gpgye0000e7pjhijfhp7w" class="article-share-link">
+      <a data-url="https://fayeke.github.io/2021/10/26/%E5%B0%8F%E8%AE%B0-%E4%B8%80%E7%82%B9%E5%8F%8D%E6%80%9D/" data-id="ckv7gpgyp001fe7pjaqia2l7m" class="article-share-link">
         分享
       </a>
       
-<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/M1/" rel="tag">M1</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MacOS/" rel="tag">MacOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SDL/" rel="tag">SDL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode/" rel="tag">Xcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="tag">游戏开发</a></li></ul>
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="tag">游戏开发</a></li></ul>
 
     </footer>
 
@@ -97,19 +97,10 @@
   
 <nav class="article-nav">
   
-  <a href="/2021/07/05/%E5%B0%8F%E8%AE%B0-%E7%94%A8%E4%BA%8E%E4%B8%AA%E4%BA%BA%E5%A4%87%E4%BB%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E9%93%BE%E6%8E%A5%E5%90%88%E9%9B%86/" class="article-nav-link">
-    <strong class="article-nav-caption">前一篇</strong>
-    <div class="article-nav-title">
-      
-      小记-用于个人备份的网页链接合集
-      
-    </div>
-  </a>
   
-  
-  <a href="/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" class="article-nav-link">
+  <a href="/2021/09/13/Unity%E5%AD%A6%E4%B9%A0002-%E6%A0%B9%E6%8D%AEBrackeys%E4%BD%AC%E6%95%99%E7%A8%8B%E5%AE%9E%E7%8E%B0%E9%97%A8%E7%9A%84%E5%9C%BA%E6%99%AF%E8%BD%AC%E6%8D%A2/" class="article-nav-link">
     <strong class="article-nav-caption">后一篇</strong>
-    <div class="article-nav-title">DevLog002-Xcode使用SDL2_image安装配置</div>
+    <div class="article-nav-title">Unity学习002-根据Brackeys佬教程实现门的场景转换</div>
   </a>
   
 </nav>
