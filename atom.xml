@@ -6,7 +6,7 @@
   <link href="https://fayeke.github.io/atom.xml" rel="self"/>
   
   <link href="https://fayeke.github.io/"/>
-  <updated>2021-10-26T02:20:11.899Z</updated>
+  <updated>2022-10-03T14:03:51.542Z</updated>
   <id>https://fayeke.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++ 继承</title>
+    <link href="https://fayeke.github.io/2022/10/03/C++%E7%BB%A7%E6%89%BF/"/>
+    <id>https://fayeke.github.io/2022/10/03/C++%E7%BB%A7%E6%89%BF/</id>
+    <published>2022-10-03T14:01:35.000Z</published>
+    <updated>2022-10-03T14:03:51.542Z</updated>
+    
+    
+    
+    
+    <category term="C/C++学习" scheme="https://fayeke.github.io/categories/C-C-%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="C++" scheme="https://fayeke.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>小记-一点反思</title>
