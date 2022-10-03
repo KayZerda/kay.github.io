@@ -139,13 +139,6 @@
 
   
   <url>
-    <loc>https://kay.github.io/categories/C-C-%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2022-10-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://kay.github.io/categories/%E5%9F%BA%E4%BA%8ESDL%E7%9A%84%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2022-10-03</lastmod>
     <changefreq>daily</changefreq>
@@ -161,6 +154,13 @@
   
   <url>
     <loc>https://kay.github.io/categories/%E5%B0%8F%E8%AE%B0/</loc>
+    <lastmod>2022-10-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kay.github.io/categories/C-C-%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2022-10-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
