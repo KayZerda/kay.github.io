@@ -6,7 +6,7 @@
   <link href="https://kayzerda.github.io/atom.xml" rel="self"/>
   
   <link href="https://kayzerda.github.io/"/>
-  <updated>2022-10-03T14:03:51.542Z</updated>
+  <updated>2022-10-03T14:38:23.360Z</updated>
   <id>https://kayzerda.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>C++ 继承</title>
+    <title>C++ 继承与构造函数</title>
     <link href="https://kayzerda.github.io/2022/10/03/C++%E7%BB%A7%E6%89%BF/"/>
     <id>https://kayzerda.github.io/2022/10/03/C++%E7%BB%A7%E6%89%BF/</id>
     <published>2022-10-03T14:01:35.000Z</published>
-    <updated>2022-10-03T14:03:51.542Z</updated>
+    <updated>2022-10-03T14:38:23.360Z</updated>
     
     
     
@@ -30,92 +30,6 @@
     
     
     <category term="C++" scheme="https://kayzerda.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>小记-一点反思</title>
-    <link href="https://kayzerda.github.io/2021/10/26/%E5%B0%8F%E8%AE%B0-%E4%B8%80%E7%82%B9%E5%8F%8D%E6%80%9D/"/>
-    <id>https://kayzerda.github.io/2021/10/26/%E5%B0%8F%E8%AE%B0-%E4%B8%80%E7%82%B9%E5%8F%8D%E6%80%9D/</id>
-    <published>2021-10-26T01:58:00.000Z</published>
-    <updated>2021-10-26T02:20:11.899Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;从上上周开始，我试图为自己的废土游戏添砖加瓦，在设计上，游戏的主题、目标和机制逐渐清晰，然而在开发上我似乎什么都没能完成。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="小记" scheme="https://kayzerda.github.io/categories/%E5%B0%8F%E8%AE%B0/"/>
-    
-    
-    <category term="游戏开发" scheme="https://kayzerda.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
-    
-    <category term="其他" scheme="https://kayzerda.github.io/tags/%E5%85%B6%E4%BB%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unity学习002-根据Brackeys佬教程实现门的场景转换</title>
-    <link href="https://kayzerda.github.io/2021/09/13/Unity%E5%AD%A6%E4%B9%A0002-%E6%A0%B9%E6%8D%AEBrackeys%E4%BD%AC%E6%95%99%E7%A8%8B%E5%AE%9E%E7%8E%B0%E9%97%A8%E7%9A%84%E5%9C%BA%E6%99%AF%E8%BD%AC%E6%8D%A2/"/>
-    <id>https://kayzerda.github.io/2021/09/13/Unity%E5%AD%A6%E4%B9%A0002-%E6%A0%B9%E6%8D%AEBrackeys%E4%BD%AC%E6%95%99%E7%A8%8B%E5%AE%9E%E7%8E%B0%E9%97%A8%E7%9A%84%E5%9C%BA%E6%99%AF%E8%BD%AC%E6%8D%A2/</id>
-    <published>2021-09-13T14:43:00.000Z</published>
-    <updated>2021-09-13T14:58:15.104Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;纯日志，无教程&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Unity学习" scheme="https://kayzerda.github.io/categories/Unity%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="游戏开发" scheme="https://kayzerda.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
-    
-    <category term="Unity" scheme="https://kayzerda.github.io/tags/Unity/"/>
-    
-    <category term="C#" scheme="https://kayzerda.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unity学习001-简单的电梯实现</title>
-    <link href="https://kayzerda.github.io/2021/08/05/Unity%E5%AD%A6%E4%B9%A0001-%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%B5%E6%A2%AF%E5%AE%9E%E7%8E%B0/"/>
-    <id>https://kayzerda.github.io/2021/08/05/Unity%E5%AD%A6%E4%B9%A0001-%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%B5%E6%A2%AF%E5%AE%9E%E7%8E%B0/</id>
-    <published>2021-08-05T10:21:00.000Z</published>
-    <updated>2021-08-13T05:39:52.950Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;计划学习实现一个电梯系统，先从简单模仿上下移动入手，写篇博客记录一下思路和过程。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Unity学习" scheme="https://kayzerda.github.io/categories/Unity%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="游戏开发" scheme="https://kayzerda.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
-    
-    <category term="Unity" scheme="https://kayzerda.github.io/tags/Unity/"/>
-    
-    <category term="C#" scheme="https://kayzerda.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>小记-用于个人备份的网页链接合集</title>
-    <link href="https://kayzerda.github.io/2021/07/05/%E5%B0%8F%E8%AE%B0-%E7%94%A8%E4%BA%8E%E4%B8%AA%E4%BA%BA%E5%A4%87%E4%BB%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E9%93%BE%E6%8E%A5%E5%90%88%E9%9B%86/"/>
-    <id>https://kayzerda.github.io/2021/07/05/%E5%B0%8F%E8%AE%B0-%E7%94%A8%E4%BA%8E%E4%B8%AA%E4%BA%BA%E5%A4%87%E4%BB%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E9%93%BE%E6%8E%A5%E5%90%88%E9%9B%86/</id>
-    <published>2021-07-05T12:01:00.000Z</published>
-    <updated>2021-07-05T12:33:25.463Z</updated>
-    
-    
-    <summary type="html">&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;包含：各种问题的解决方案，优秀博客博文等。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="小记" scheme="https://kayzerda.github.io/categories/%E5%B0%8F%E8%AE%B0/"/>
-    
-    
-    <category term="其他" scheme="https://kayzerda.github.io/tags/%E5%85%B6%E4%BB%96/"/>
     
   </entry>
   
