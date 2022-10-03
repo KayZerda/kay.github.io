@@ -3,11 +3,11 @@
   <title>过敏的太空小屋</title>
   
   <subtitle>代码｜游戏｜绘画</subtitle>
-  <link href="https://fayeke.github.io/atom.xml" rel="self"/>
+  <link href="https://kay.github.io/atom.xml" rel="self"/>
   
-  <link href="https://fayeke.github.io/"/>
+  <link href="https://kay.github.io/"/>
   <updated>2022-10-03T14:03:51.542Z</updated>
-  <id>https://fayeke.github.io/</id>
+  <id>https://kay.github.io/</id>
   
   <author>
     <name>Faye Ke</name>
@@ -18,25 +18,25 @@
   
   <entry>
     <title>C++ 继承</title>
-    <link href="https://fayeke.github.io/2022/10/03/C++%E7%BB%A7%E6%89%BF/"/>
-    <id>https://fayeke.github.io/2022/10/03/C++%E7%BB%A7%E6%89%BF/</id>
+    <link href="https://kay.github.io/2022/10/03/C++%E7%BB%A7%E6%89%BF/"/>
+    <id>https://kay.github.io/2022/10/03/C++%E7%BB%A7%E6%89%BF/</id>
     <published>2022-10-03T14:01:35.000Z</published>
     <updated>2022-10-03T14:03:51.542Z</updated>
     
     
     
     
-    <category term="C/C++学习" scheme="https://fayeke.github.io/categories/C-C-%E5%AD%A6%E4%B9%A0/"/>
+    <category term="C/C++学习" scheme="https://kay.github.io/categories/C-C-%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="C++" scheme="https://fayeke.github.io/tags/C/"/>
+    <category term="C++" scheme="https://kay.github.io/tags/C/"/>
     
   </entry>
   
   <entry>
     <title>小记-一点反思</title>
-    <link href="https://fayeke.github.io/2021/10/26/%E5%B0%8F%E8%AE%B0-%E4%B8%80%E7%82%B9%E5%8F%8D%E6%80%9D/"/>
-    <id>https://fayeke.github.io/2021/10/26/%E5%B0%8F%E8%AE%B0-%E4%B8%80%E7%82%B9%E5%8F%8D%E6%80%9D/</id>
+    <link href="https://kay.github.io/2021/10/26/%E5%B0%8F%E8%AE%B0-%E4%B8%80%E7%82%B9%E5%8F%8D%E6%80%9D/"/>
+    <id>https://kay.github.io/2021/10/26/%E5%B0%8F%E8%AE%B0-%E4%B8%80%E7%82%B9%E5%8F%8D%E6%80%9D/</id>
     <published>2021-10-26T01:58:00.000Z</published>
     <updated>2021-10-26T02:20:11.899Z</updated>
     
@@ -45,19 +45,19 @@
     
     
     
-    <category term="小记" scheme="https://fayeke.github.io/categories/%E5%B0%8F%E8%AE%B0/"/>
+    <category term="小记" scheme="https://kay.github.io/categories/%E5%B0%8F%E8%AE%B0/"/>
     
     
-    <category term="游戏开发" scheme="https://fayeke.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+    <category term="游戏开发" scheme="https://kay.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
     
-    <category term="其他" scheme="https://fayeke.github.io/tags/%E5%85%B6%E4%BB%96/"/>
+    <category term="其他" scheme="https://kay.github.io/tags/%E5%85%B6%E4%BB%96/"/>
     
   </entry>
   
   <entry>
     <title>Unity学习002-根据Brackeys佬教程实现门的场景转换</title>
-    <link href="https://fayeke.github.io/2021/09/13/Unity%E5%AD%A6%E4%B9%A0002-%E6%A0%B9%E6%8D%AEBrackeys%E4%BD%AC%E6%95%99%E7%A8%8B%E5%AE%9E%E7%8E%B0%E9%97%A8%E7%9A%84%E5%9C%BA%E6%99%AF%E8%BD%AC%E6%8D%A2/"/>
-    <id>https://fayeke.github.io/2021/09/13/Unity%E5%AD%A6%E4%B9%A0002-%E6%A0%B9%E6%8D%AEBrackeys%E4%BD%AC%E6%95%99%E7%A8%8B%E5%AE%9E%E7%8E%B0%E9%97%A8%E7%9A%84%E5%9C%BA%E6%99%AF%E8%BD%AC%E6%8D%A2/</id>
+    <link href="https://kay.github.io/2021/09/13/Unity%E5%AD%A6%E4%B9%A0002-%E6%A0%B9%E6%8D%AEBrackeys%E4%BD%AC%E6%95%99%E7%A8%8B%E5%AE%9E%E7%8E%B0%E9%97%A8%E7%9A%84%E5%9C%BA%E6%99%AF%E8%BD%AC%E6%8D%A2/"/>
+    <id>https://kay.github.io/2021/09/13/Unity%E5%AD%A6%E4%B9%A0002-%E6%A0%B9%E6%8D%AEBrackeys%E4%BD%AC%E6%95%99%E7%A8%8B%E5%AE%9E%E7%8E%B0%E9%97%A8%E7%9A%84%E5%9C%BA%E6%99%AF%E8%BD%AC%E6%8D%A2/</id>
     <published>2021-09-13T14:43:00.000Z</published>
     <updated>2021-09-13T14:58:15.104Z</updated>
     
@@ -66,21 +66,21 @@
     
     
     
-    <category term="Unity学习" scheme="https://fayeke.github.io/categories/Unity%E5%AD%A6%E4%B9%A0/"/>
+    <category term="Unity学习" scheme="https://kay.github.io/categories/Unity%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="游戏开发" scheme="https://fayeke.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+    <category term="游戏开发" scheme="https://kay.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
     
-    <category term="Unity" scheme="https://fayeke.github.io/tags/Unity/"/>
+    <category term="Unity" scheme="https://kay.github.io/tags/Unity/"/>
     
-    <category term="C#" scheme="https://fayeke.github.io/tags/C/"/>
+    <category term="C#" scheme="https://kay.github.io/tags/C/"/>
     
   </entry>
   
   <entry>
     <title>Unity学习001-简单的电梯实现</title>
-    <link href="https://fayeke.github.io/2021/08/05/Unity%E5%AD%A6%E4%B9%A0001-%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%B5%E6%A2%AF%E5%AE%9E%E7%8E%B0/"/>
-    <id>https://fayeke.github.io/2021/08/05/Unity%E5%AD%A6%E4%B9%A0001-%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%B5%E6%A2%AF%E5%AE%9E%E7%8E%B0/</id>
+    <link href="https://kay.github.io/2021/08/05/Unity%E5%AD%A6%E4%B9%A0001-%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%B5%E6%A2%AF%E5%AE%9E%E7%8E%B0/"/>
+    <id>https://kay.github.io/2021/08/05/Unity%E5%AD%A6%E4%B9%A0001-%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%B5%E6%A2%AF%E5%AE%9E%E7%8E%B0/</id>
     <published>2021-08-05T10:21:00.000Z</published>
     <updated>2021-08-13T05:39:52.950Z</updated>
     
@@ -89,21 +89,21 @@
     
     
     
-    <category term="Unity学习" scheme="https://fayeke.github.io/categories/Unity%E5%AD%A6%E4%B9%A0/"/>
+    <category term="Unity学习" scheme="https://kay.github.io/categories/Unity%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="游戏开发" scheme="https://fayeke.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+    <category term="游戏开发" scheme="https://kay.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
     
-    <category term="Unity" scheme="https://fayeke.github.io/tags/Unity/"/>
+    <category term="Unity" scheme="https://kay.github.io/tags/Unity/"/>
     
-    <category term="C#" scheme="https://fayeke.github.io/tags/C/"/>
+    <category term="C#" scheme="https://kay.github.io/tags/C/"/>
     
   </entry>
   
   <entry>
     <title>小记-用于个人备份的网页链接合集</title>
-    <link href="https://fayeke.github.io/2021/07/05/%E5%B0%8F%E8%AE%B0-%E7%94%A8%E4%BA%8E%E4%B8%AA%E4%BA%BA%E5%A4%87%E4%BB%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E9%93%BE%E6%8E%A5%E5%90%88%E9%9B%86/"/>
-    <id>https://fayeke.github.io/2021/07/05/%E5%B0%8F%E8%AE%B0-%E7%94%A8%E4%BA%8E%E4%B8%AA%E4%BA%BA%E5%A4%87%E4%BB%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E9%93%BE%E6%8E%A5%E5%90%88%E9%9B%86/</id>
+    <link href="https://kay.github.io/2021/07/05/%E5%B0%8F%E8%AE%B0-%E7%94%A8%E4%BA%8E%E4%B8%AA%E4%BA%BA%E5%A4%87%E4%BB%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E9%93%BE%E6%8E%A5%E5%90%88%E9%9B%86/"/>
+    <id>https://kay.github.io/2021/07/05/%E5%B0%8F%E8%AE%B0-%E7%94%A8%E4%BA%8E%E4%B8%AA%E4%BA%BA%E5%A4%87%E4%BB%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E9%93%BE%E6%8E%A5%E5%90%88%E9%9B%86/</id>
     <published>2021-07-05T12:01:00.000Z</published>
     <updated>2021-07-05T12:33:25.463Z</updated>
     
@@ -112,17 +112,17 @@
     
     
     
-    <category term="小记" scheme="https://fayeke.github.io/categories/%E5%B0%8F%E8%AE%B0/"/>
+    <category term="小记" scheme="https://kay.github.io/categories/%E5%B0%8F%E8%AE%B0/"/>
     
     
-    <category term="其他" scheme="https://fayeke.github.io/tags/%E5%85%B6%E4%BB%96/"/>
+    <category term="其他" scheme="https://kay.github.io/tags/%E5%85%B6%E4%BB%96/"/>
     
   </entry>
   
   <entry>
     <title>DevLog003-Mac动态库签名问题：最好的解决方式就是手动解决</title>
-    <link href="https://fayeke.github.io/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/"/>
-    <id>https://fayeke.github.io/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/</id>
+    <link href="https://kay.github.io/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/"/>
+    <id>https://kay.github.io/2021/04/15/DevLog003-Mac%E5%8A%A8%E6%80%81%E5%BA%93%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%B1%E6%98%AF%E6%89%8B%E5%8A%A8%E8%A7%A3%E5%86%B3/</id>
     <published>2021-04-15T11:20:00.000Z</published>
     <updated>2021-04-15T12:19:25.523Z</updated>
     
@@ -131,27 +131,27 @@
     
     
     
-    <category term="基于SDL的游戏开发学习" scheme="https://fayeke.github.io/categories/%E5%9F%BA%E4%BA%8ESDL%E7%9A%84%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/"/>
+    <category term="基于SDL的游戏开发学习" scheme="https://kay.github.io/categories/%E5%9F%BA%E4%BA%8ESDL%E7%9A%84%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="C++" scheme="https://fayeke.github.io/tags/C/"/>
+    <category term="C++" scheme="https://kay.github.io/tags/C/"/>
     
-    <category term="Xcode" scheme="https://fayeke.github.io/tags/Xcode/"/>
+    <category term="Xcode" scheme="https://kay.github.io/tags/Xcode/"/>
     
-    <category term="SDL" scheme="https://fayeke.github.io/tags/SDL/"/>
+    <category term="SDL" scheme="https://kay.github.io/tags/SDL/"/>
     
-    <category term="MacOS" scheme="https://fayeke.github.io/tags/MacOS/"/>
+    <category term="MacOS" scheme="https://kay.github.io/tags/MacOS/"/>
     
-    <category term="M1" scheme="https://fayeke.github.io/tags/M1/"/>
+    <category term="M1" scheme="https://kay.github.io/tags/M1/"/>
     
-    <category term="游戏开发" scheme="https://fayeke.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+    <category term="游戏开发" scheme="https://kay.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
   <entry>
     <title>DevLog002-Xcode使用SDL2_image安装配置</title>
-    <link href="https://fayeke.github.io/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
-    <id>https://fayeke.github.io/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</id>
+    <link href="https://kay.github.io/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+    <id>https://kay.github.io/2021/04/14/DevLog002-Xcode%E4%BD%BF%E7%94%A8SDL2_image%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</id>
     <published>2021-04-14T09:02:00.000Z</published>
     <updated>2021-04-16T05:53:00.843Z</updated>
     
@@ -160,27 +160,27 @@
     
     
     
-    <category term="基于SDL的游戏开发学习" scheme="https://fayeke.github.io/categories/%E5%9F%BA%E4%BA%8ESDL%E7%9A%84%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/"/>
+    <category term="基于SDL的游戏开发学习" scheme="https://kay.github.io/categories/%E5%9F%BA%E4%BA%8ESDL%E7%9A%84%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="C++" scheme="https://fayeke.github.io/tags/C/"/>
+    <category term="C++" scheme="https://kay.github.io/tags/C/"/>
     
-    <category term="Xcode" scheme="https://fayeke.github.io/tags/Xcode/"/>
+    <category term="Xcode" scheme="https://kay.github.io/tags/Xcode/"/>
     
-    <category term="SDL" scheme="https://fayeke.github.io/tags/SDL/"/>
+    <category term="SDL" scheme="https://kay.github.io/tags/SDL/"/>
     
-    <category term="MacOS" scheme="https://fayeke.github.io/tags/MacOS/"/>
+    <category term="MacOS" scheme="https://kay.github.io/tags/MacOS/"/>
     
-    <category term="M1" scheme="https://fayeke.github.io/tags/M1/"/>
+    <category term="M1" scheme="https://kay.github.io/tags/M1/"/>
     
-    <category term="游戏开发" scheme="https://fayeke.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+    <category term="游戏开发" scheme="https://kay.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
   <entry>
     <title>DevLog001-Xcode使用SDL2安装配置(M1)</title>
-    <link href="https://fayeke.github.io/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/"/>
-    <id>https://fayeke.github.io/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/</id>
+    <link href="https://kay.github.io/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/"/>
+    <id>https://kay.github.io/2021/04/11/DevLog001-XCode%E4%BD%BF%E7%94%A8SDL2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-M1/</id>
     <published>2021-04-11T12:45:55.000Z</published>
     <updated>2021-08-05T11:33:35.143Z</updated>
     
@@ -191,20 +191,20 @@
     
     
     
-    <category term="基于SDL的游戏开发学习" scheme="https://fayeke.github.io/categories/%E5%9F%BA%E4%BA%8ESDL%E7%9A%84%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/"/>
+    <category term="基于SDL的游戏开发学习" scheme="https://kay.github.io/categories/%E5%9F%BA%E4%BA%8ESDL%E7%9A%84%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="C++" scheme="https://fayeke.github.io/tags/C/"/>
+    <category term="C++" scheme="https://kay.github.io/tags/C/"/>
     
-    <category term="Xcode" scheme="https://fayeke.github.io/tags/Xcode/"/>
+    <category term="Xcode" scheme="https://kay.github.io/tags/Xcode/"/>
     
-    <category term="SDL" scheme="https://fayeke.github.io/tags/SDL/"/>
+    <category term="SDL" scheme="https://kay.github.io/tags/SDL/"/>
     
-    <category term="MacOS" scheme="https://fayeke.github.io/tags/MacOS/"/>
+    <category term="MacOS" scheme="https://kay.github.io/tags/MacOS/"/>
     
-    <category term="M1" scheme="https://fayeke.github.io/tags/M1/"/>
+    <category term="M1" scheme="https://kay.github.io/tags/M1/"/>
     
-    <category term="游戏开发" scheme="https://fayeke.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+    <category term="游戏开发" scheme="https://kay.github.io/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
